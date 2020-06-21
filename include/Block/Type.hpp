@@ -34,8 +34,15 @@ namespace Block{
                                   PLAYER_HIT,
 
                                   //WEAPON
-                                  WEAPON_MELEE,
-                                  WEAPON_RANGE,
+                                  WEAPON_MELEE_UP,
+                                  WEAPON_MELEE_LEFT,
+                                  WEAPON_MELEE_DOWN,
+                                  WEAPON_MELEE_RIGHT,
+
+                                  WEAPON_RANGE_UP,
+                                  WEAPON_RANGE_LEFT,
+                                  WEAPON_RANGE_DOWN,
+                                  WEAPON_RANGE_RIGHT,
 
                                   //KEYS
                                   //MONO KEYS
