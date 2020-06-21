@@ -1,5 +1,5 @@
-#ifndef NANARO_BLOCK_BLOCKCOLOUR_HEAD_HPP
-#define NANARO_BLOCK_BLOCKCOLOUR_HEAD_HPP
+#ifndef NANARO_BLOCK_PIXCOL_HEAD_HPP
+#define NANARO_BLOCK_PIXCOL_HEAD_HPP
 #include <cstdint>
 
 namespace Block {
@@ -11,4 +11,4 @@ namespace Block {
   };
 }
 
-#endif //NANARO_BLOCK_BLOCKCOLOUR_HEAD_HPP
+#endif //NANARO_BLOCK_PIXCOL_HEAD_HPP
