@@ -20,11 +20,17 @@ namespace Block{
                                   EXIT_UNLOCKED,
 
                                   //ENEMY
-                                  ENEMY,
+                                  ENEMY_UP,
+                                  ENEMY_LEFT,
+                                  ENEMY_DOWN,
+                                  ENEMY_RIGHT,
                                   ENEMY_HIT,
 
                                   //PLAYER
-                                  PLAYER,
+                                  PLAYER_UP,
+                                  PLAYER_LEFT,
+                                  PLAYER_DOWN,
+                                  PLAYER_RIGHT,
                                   PLAYER_HIT,
 
                                   //WEAPON
