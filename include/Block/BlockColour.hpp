@@ -8,7 +8,7 @@ namespace Block {
                     YES,
                     RED,
                     GREEN
-  }
+  };
 }
 
 #endif //NANARO_BLOCK_BLOCKCOLOUR_HEAD_HPP
