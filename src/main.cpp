@@ -1,3 +1,4 @@
+#include "Block/PixCol.hpp"
 #include <SFML/Graphics.hpp>
 
 int main(int argc, char ** argv)

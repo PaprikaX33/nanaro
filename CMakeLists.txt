@@ -80,6 +80,7 @@ set(SOURCE_FILES
 
 set(INCLUDE_FILES
   #${CMAKE_CURRENT_SOURCE_DIR}/include/Header.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/PixCol.hpp
   )
 
 add_executable(${EXECUTABLE_NAME}
