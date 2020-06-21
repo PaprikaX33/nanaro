@@ -3,11 +3,11 @@
 #include <cstdint>
 
 namespace Block {
-  enum class Color {
-                    NO,
-                    YES,
-                    RED,
-                    GREEN
+  enum class Color : std::uint8_t {
+                                   WHITE,
+                                   BLACK,
+                                   RED,
+                                   GREEN
   };
 }
 
