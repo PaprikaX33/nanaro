@@ -14,11 +14,18 @@ int main(int argc, char ** argv)
   Sprite::initialize();
   sf::RenderWindow window(sf::VideoMode(800,600), "Hello World!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
-  enum Block::Type walla[660u];
+  enum Block::Type testingGrid[660u];
   for(std::size_t i = 0; i < 660u; i++){
-    walla[i] = Block::Type::WALL_B;
+    switch(i % 4){
+    case 0: testingGrid[i] = Block::Type::WALL_A; break;
+    case 1: testingGrid[i] = Block::Type::WALL_B; break;
+    case 2: testingGrid[i] = Block::Type::WALL_C; break;
+    case 3: testingGrid[i] = Block::Type::WALL_D; break;
+    }
+
+    //testingGrid[i] = Block::Type::WALL_C;
   }
-  write_separator(walla);
+  write_separator(testingGrid);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -31,7 +38,7 @@ int main(int argc, char ** argv)
       }
     }
     window.clear();
-    Sprite::draw(window, walla);
+    Sprite::draw(window, testingGrid);
     window.display();
   }
   return 0;

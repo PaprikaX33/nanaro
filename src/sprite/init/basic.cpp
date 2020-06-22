@@ -44,7 +44,7 @@ void Sprite::Init::wall(Block::Colour * arr)
   textureMap[Block::Type::WALL_A] = texture;
   //WALL_B
   arr[arr_loc(3,4)] = Block::Colour::RED;
-  arr[arr_loc(4,4)] = Block::Colour::RED;
+  arr[arr_loc(4,4)] = Block::Colour::WHITE;
   arr[arr_loc(3,3)] = Block::Colour::RED;
 
   arr[arr_loc(7,6)] = Block::Colour::GREEN;
@@ -52,7 +52,19 @@ void Sprite::Init::wall(Block::Colour * arr)
   texture.loadFromImage(Block::to_image(arr));
   textureMap[Block::Type::WALL_B] = texture;
   //WALL_C
+  wall_reset(arr);
+  arr[arr_loc(2,0)] = Block::Colour::WHITE;
+  arr[arr_loc(10,9)] = Block::Colour::RED;
+  texture.loadFromImage(Block::to_image(arr));
+  textureMap[Block::Type::WALL_C] = texture;
   //WALL_D
+  wall_reset(arr);
+  arr[arr_loc(7,8)] = Block::Colour::GREEN;
+  arr[arr_loc(3,3)] = Block::Colour::WHITE;
+  arr[arr_loc(10,2)] = Block::Colour::RED;
+  arr[arr_loc(9,3)] = Block::Colour::RED;
+  texture.loadFromImage(Block::to_image(arr));
+  textureMap[Block::Type::WALL_D] = texture;
 }
 
 void Sprite::Init::exit(Block::Colour * arr)
