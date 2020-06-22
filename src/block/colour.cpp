@@ -5,7 +5,7 @@ sf::Color Block::toColor(enum Block::Color col)
 {
   switch(col){
   case Block::Color::WHITE:
-    return sf::Color(169, 166, 162, 255);
+    return sf::Color(170, 166, 161, 255);
   case Block::Color::BLACK:
     return sf::Color(0,0,0, 255);
   case Block::Color::RED:
