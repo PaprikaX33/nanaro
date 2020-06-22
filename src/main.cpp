@@ -6,6 +6,8 @@
 #include <vector>
 #include <cstddef>
 
+void write_separator(enum Block::Type * );
+
 int main(int argc, char ** argv)
 {
   (void)argc; (void)argv;
@@ -14,8 +16,9 @@ int main(int argc, char ** argv)
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type walla[660u];
   for(std::size_t i = 0; i < 660u; i++){
-    walla[i] = Block::Type::WALL_A;
+    walla[i] = Block::Type::WALL_B;
   }
+  write_separator(walla);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -32,4 +35,19 @@ int main(int argc, char ** argv)
     window.display();
   }
   return 0;
+}
+
+void write_separator(enum Block::Type * arr)
+{
+  //arr[x + (30 * y)] = BlocK::Type::BLACK;
+  for(std::size_t i = 0; i < 22u; i++){
+    arr[0 + (30 * i)] = Block::Type::BLACK;
+    arr[12 + (30 * i)] = Block::Type::BLACK;
+    arr[29 + (30 * i)] = Block::Type::BLACK;
+  }
+  for(std::size_t i = 0; i < 30u; i++){
+    arr[i + (30 * 0)] = Block::Type::BLACK;
+    arr[i + (30 * 17)] = Block::Type::BLACK;
+    arr[i + (30 * 21)] = Block::Type::BLACK;
+  }
 }
