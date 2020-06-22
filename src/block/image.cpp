@@ -3,7 +3,7 @@
 #include <SFML/Graphics/Image.hpp>
 #include <cstddef>
 
-sf::Image to_image(enum Block::Colour const * arr)
+sf::Image Block::to_image(enum Block::Colour const * arr)
 {
   sf::Uint8 imgArr[12u * 12u * 4u];
   sf::Image img;

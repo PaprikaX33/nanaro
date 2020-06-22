@@ -11,18 +11,39 @@
 static constexpr std::size_t arrSize = 12u * 12u;
 static std::unordered_map<enum Block::Type, sf::Texture> textureMap(76);
 
+void reset_col(Block::Colour *);
 
 void Sprite::initialize(void)
 {
   Block::Colour arr[arrSize];
+  sf::Texture texture;
   //OPAQUE_WHITE
-  for(std::size_t i = 0; i < arrSize; i++){
-    arr[i] = Block::Colour::WHITE;
-  }
+  reset_col(arr);
+  texture.loadFromImage(Block::to_image(arr));
+  textureMap[Block::Type::OPAQUE_WHITE] = texture;
   //OPAQUE_BLACK
+  for(std::size_t i = 0; i < arrSize; i++){
+    arr[i] = Block::Colour::BLACK;
+  }
+  texture.loadFromImage(Block::to_image(arr));
+  textureMap[Block::Type::OPAQUE_BLACK] = texture;
   //OPAQUE_RED
+  for(std::size_t i = 0; i < arrSize; i++){
+    arr[i] = Block::Colour::RED;
+  }
+  texture.loadFromImage(Block::to_image(arr));
+  textureMap[Block::Type::OPAQUE_RED] = texture;
   //OPAQUE_GREEN
+  for(std::size_t i = 0; i < arrSize; i++){
+    arr[i] = Block::Colour::GREEN;
+  }
+  texture.loadFromImage(Block::to_image(arr));
+  textureMap[Block::Type::OPAQUE_GREEN] = texture;
+
   //WALL_A
+  reset_col(arr);
+  texture.loadFromImage(Block::to_image(arr));
+  textureMap[Block::Type::WALL_A] = texture;
   //WALL_B
   //WALL_C
   //WALL_D
@@ -94,4 +115,11 @@ void Sprite::initialize(void)
   //DOT
   //COMMA
   //DASH
+}
+
+void reset_col(Block::Colour * col)
+{
+  for(std::size_t i = 0; i < arrSize; i++){
+    col[i] = Block::Colour::WHITE;
+  }
 }
