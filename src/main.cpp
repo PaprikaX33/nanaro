@@ -16,11 +16,9 @@ int main(int argc, char ** argv)
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type testingGrid[660u];
   for(std::size_t i = 0; i < 660u; i++){
-    switch(i % 4){
-    case 0: testingGrid[i] = Block::Type::WALL_A; break;
-    case 1: testingGrid[i] = Block::Type::WALL_B; break;
-    case 2: testingGrid[i] = Block::Type::WALL_C; break;
-    case 3: testingGrid[i] = Block::Type::WALL_D; break;
+    switch(i % 2){
+    case 0: testingGrid[i] = Block::Type::EXIT_UNLOCKED; break;
+    case 1: testingGrid[i] = Block::Type::EXIT_LOCKED; break;
     }
 
     //testingGrid[i] = Block::Type::WALL_C;
