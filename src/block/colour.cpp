@@ -1,7 +1,7 @@
 #include "Block/PixCol.hpp"
 #include "Block/Colour.hpp"
 
-sf::Color Block::toColor(enum Block::Color col)
+sf::Color Block::to_colour(enum Block::Color col)
 {
   switch(col){
   case Block::Color::WHITE:

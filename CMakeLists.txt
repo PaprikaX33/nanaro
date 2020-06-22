@@ -77,12 +77,14 @@ add_subdirectory(include)
 set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/colour.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/block/image.cpp
   )
 
 set(INCLUDE_FILES
   #${CMAKE_CURRENT_SOURCE_DIR}/include/Header.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/PixCol.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Type.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Image.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Colour.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Sprite/Draw.hpp
   )
