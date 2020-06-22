@@ -12,16 +12,8 @@ void Sprite::initialize(void)
   Sprite::Init::opaque(arr);
   Sprite::Init::wall(arr);
   Sprite::Init::exit(arr);
-  //ENEMY_UP
-  //ENEMY_LEFT
-  //ENEMY_DOWN
-  //ENEMY_RIGHT
-  //ENEMY_HIT
-  //PLAYER_UP
-  //PLAYER_LEFT
-  //PLAYER_DOWN
-  //PLAYER_RIGHT
-  //PLAYER_HIT
+
+
   //WEAPON_MELEE_UP
   //WEAPON_MELEE_LEFT
   //WEAPON_MELEE_DOWN
