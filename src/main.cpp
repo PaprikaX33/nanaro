@@ -6,7 +6,7 @@ int main(int argc, char ** argv)
 {
   (void)argc; (void)argv;
   sf::RenderWindow window(sf::VideoMode(800,600), "Hello World!");
-  sf::View viewScaler(sf::FloatRect(0, 0, 360, 264));
+  sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
