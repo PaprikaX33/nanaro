@@ -4,7 +4,7 @@
 #include <SFML/Graphics/Image.hpp>
 
 namespace Block {
-  sf::Image to_image(enum Block::Color const *); //Exactly 12 * 12 = 224
+  sf::Image to_image(enum Block::Colour const *); //Exactly 12 * 12 = 224
 }
 
 #endif //NANARO_BLOCK_IMAGE_HEAD_HPP

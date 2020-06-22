@@ -4,7 +4,7 @@
 #include <SFML/Graphics/Color.hpp>
 
 namespace Block {
-  sf::Color to_colour(enum Block::Color);
+  sf::Color to_colour(enum Block::Colour);
 }
 
 #endif //NANARO_BLOCK_COLOUR_HEAD_HPP

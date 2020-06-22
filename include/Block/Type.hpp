@@ -81,7 +81,7 @@ namespace Block{
                                   DOT,
                                   COMMA,
                                   DASH,
-                                  SPACE,
+                                  SPACE = OPAQUE_WHITE,
 
                                   //QOL
                                   WHITE = OPAQUE_WHITE,
