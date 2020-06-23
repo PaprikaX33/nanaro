@@ -20,7 +20,7 @@ int main(int argc, char ** argv)
     // case 0: testingGrid[i] = Block::Type::ONE; break;
     // case 1: testingGrid[i] = Block::Type::EXIT_LOCKED; break;
     // }
-    testingGrid[i] = Block::Type::THREE;
+    testingGrid[i] = Block::Type::FIVE;
 
     //testingGrid[i] = Block::Type::WALL_C;
   }
