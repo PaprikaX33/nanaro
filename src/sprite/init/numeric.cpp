@@ -45,11 +45,27 @@ void Sprite::Init::num(Block::Colour * arr)
   arr[arr_loc(4,2)] = Block::Colour::BLACK;
   arr[arr_loc(3,3)] = Block::Colour::BLACK;
   arr[arr_loc(4,3)] = Block::Colour::BLACK;
-  // arr[arr_loc(1,10)] = Block::Colour::BLACK;
-  // arr[arr_loc(10,10)] = Block::Colour::BLACK;
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::ONE] = texture;
   //TWO
+  reset_col(arr);
+  for(std::size_t i = 2; i < 9; i++){
+    arr[arr_loc(i,1)] = Block::Colour::BLACK;
+    arr[arr_loc(i,2)] = Block::Colour::BLACK;
+  }
+  for(std::size_t i = 2; i < 10; i++){
+    arr[arr_loc(i,9)] = Block::Colour::BLACK;
+    arr[arr_loc(i,10)] = Block::Colour::BLACK;
+  }
+  for(std::size_t i = 3; i < 10; i++){
+    arr[arr_loc(i,11-i)] = Block::Colour::BLACK;
+    arr[arr_loc(i,12-i)] = Block::Colour::BLACK;
+    arr[arr_loc(i,13-i)] = Block::Colour::BLACK;
+  }
+  //arr[arr_loc(1,10)] = Block::Colour::BLACK;
+  arr[arr_loc(7,3)] = Block::Colour::BLACK;
+  texture.loadFromImage(Block::to_image(arr));
+  Sprite::textureMap[Block::Type::TWO] = texture;
   //THREE
   //FOUR
   //FIVE
