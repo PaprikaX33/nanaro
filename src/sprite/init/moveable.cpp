@@ -6,7 +6,8 @@
 
 void Sprite::Init::enemy(Block::Colour * arr)
 {
-  sf::Texture texture;
+  (void)arr;
+  //sf::Texture texture;
   //ENEMY_UP
   //ENEMY_LEFT
   //ENEMY_DOWN
@@ -16,6 +17,7 @@ void Sprite::Init::enemy(Block::Colour * arr)
 
 void Sprite::Init::player(Block::Colour * arr)
 {
+  (void)arr;
   sf::Texture texture;
   //PLAYER_UP
   //PLAYER_LEFT

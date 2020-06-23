@@ -79,6 +79,7 @@ set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/draw.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/basic.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/numeric.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/moveable.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/colour.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/image.cpp

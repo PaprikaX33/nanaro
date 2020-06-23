@@ -13,7 +13,6 @@ void Sprite::initialize(void)
   Sprite::Init::wall(arr);
   Sprite::Init::exit(arr);
 
-
   //WEAPON_MELEE_UP
   //WEAPON_MELEE_LEFT
   //WEAPON_MELEE_DOWN
@@ -55,16 +54,7 @@ void Sprite::initialize(void)
   //X
   //Y
   //Z
-  //ZERO
-  //ONE
-  //TWO
-  //THREE
-  //FOUR
-  //FIVE
-  //SIX
-  //SEVEN
-  //EIGHT
-  //NINE
+  Sprite::Init::num(arr);
   //COLON
   //SEMI_COLON
   //DOT
