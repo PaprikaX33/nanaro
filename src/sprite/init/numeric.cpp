@@ -160,9 +160,11 @@ void Sprite::Init::num(Block::Colour * arr)
   }
   for(std::size_t i = 7; i < 11; i++){
     arr[arr_loc(5,i)] = Block::Colour::BLACK;
+    arr[arr_loc(4,i)] = Block::Colour::BLACK;
   }
   for(std::size_t i = 5; i < 11; i++){
     arr[arr_loc(i,12-i)] = Block::Colour::BLACK;
+    arr[arr_loc(i-1,12-i)] = Block::Colour::BLACK;
   }
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::SEVEN] = texture;
