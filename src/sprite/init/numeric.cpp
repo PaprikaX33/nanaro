@@ -191,6 +191,23 @@ void Sprite::Init::num(Block::Colour * arr)
   Sprite::textureMap[Block::Type::EIGHT] = texture;
   //NINE
   reset_col(arr);
+  for(std::size_t i = 0; i < 4; i++){
+    arr[arr_loc(4+i,6)] = Block::Colour::BLACK;
+    arr[arr_loc(4+i,1)] = Block::Colour::BLACK;
+    arr[arr_loc(8,5-i)] = Block::Colour::BLACK;
+    arr[arr_loc(3,5-i)] = Block::Colour::BLACK;
+  }
+  for(std::size_t i = 0; i < 2; i++){
+    arr[arr_loc(8-i,8)] = Block::Colour::BLACK;
+    arr[arr_loc(8-i,7)] = Block::Colour::BLACK;
+    arr[arr_loc(7-i,10)] = Block::Colour::BLACK;
+    arr[arr_loc(7-i,9)] = Block::Colour::BLACK;
+  }
+  arr[arr_loc(11-3,11-5)] = Block::Colour::BLACK;
+  arr[arr_loc(11-6,11-1)] = Block::Colour::BLACK;
+  arr[arr_loc(11-6,11-2)] = Block::Colour::BLACK;
+  arr[arr_loc(11-7,11-1)] = Block::Colour::BLACK;
+  arr[arr_loc(11-7,11-2)] = Block::Colour::BLACK;
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::NINE] = texture;
 }
