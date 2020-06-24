@@ -94,6 +94,7 @@ set(INCLUDE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Colour.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Sprite/Draw.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Random.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Type.hpp
   )
 
 add_executable(${EXECUTABLE_NAME}
