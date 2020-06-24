@@ -83,6 +83,7 @@ set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/moveable.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/colour.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/image.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/sys/random.cpp
   )
 
 set(INCLUDE_FILES
