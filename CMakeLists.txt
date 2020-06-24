@@ -83,6 +83,7 @@ set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/moveable.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/colour.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/image.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/sys/random.cpp
   )
 
 set(INCLUDE_FILES
@@ -92,6 +93,7 @@ set(INCLUDE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Image.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Colour.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Sprite/Draw.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Random.hpp
   )
 
 add_executable(${EXECUTABLE_NAME}

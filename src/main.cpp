@@ -2,9 +2,11 @@
 #include "Block/Type.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
+#include "System/Random.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <cstddef>
+#include <iostream>
 
 void write_separator(enum Block::Type * );
 
@@ -12,16 +14,18 @@ int main(int argc, char ** argv)
 {
   (void)argc; (void)argv;
   Sprite::initialize();
+  sys::rng::init();
   sf::RenderWindow window(sf::VideoMode(800,600), "Hello World!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type testingGrid[660u];
   for(std::size_t i = 0; i < 660u; i++){
-    // switch(i % 2){
-    // case 0: testingGrid[i] = Block::Type::ONE; break;
-    // case 1: testingGrid[i] = Block::Type::EXIT_LOCKED; break;
-    // }
-    testingGrid[i] = Block::Type::EXIT_UNLOCKED;
-    //testingGrid[i] = Block::Type::WALL_C;
+    switch(sys::rng::wall()){
+    case 0: testingGrid[i] = Block::Type::WALL_A; break;
+    case 1: testingGrid[i] = Block::Type::WALL_B; break;
+    case 2: testingGrid[i] = Block::Type::WALL_C; break;
+    default:
+    case 3: testingGrid[i] = Block::Type::WALL_D; break;
+    }
   }
   testingGrid[30+1] = Block::Type::ZERO;
   testingGrid[30+2] = Block::Type::ONE;
