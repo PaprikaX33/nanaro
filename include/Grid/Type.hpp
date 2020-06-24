@@ -19,7 +19,7 @@ namespace Grid {
                                           ML = MID_LFT, MC = MID_CNT, MR = MID_RGH,
                                           BL = BOT_LFT, BC = BOT_CNT, BR = BOT_RGH
 
-    }
+    };
   }
 }
 

@@ -2,6 +2,7 @@
 #include "Block/Type.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
+#include "Grid/Wall.hpp"
 #include "System/Random.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -9,7 +10,6 @@
 #include <iostream>
 
 void write_separator(enum Block::Type * );
-void draw_border(enum Block::Type * );
 
 int main(int argc, char ** argv)
 {
@@ -32,7 +32,7 @@ int main(int argc, char ** argv)
   testingGrid[30+8] = Block::Type::SEVEN;
   testingGrid[30+9] = Block::Type::NINE;
   write_separator(testingGrid);
-  draw_border(testingGrid);
+  Grid::Border::draw(testingGrid, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -53,7 +53,6 @@ int main(int argc, char ** argv)
 
 void write_separator(enum Block::Type * arr)
 {
-  //arr[x + (30 * y)] = BlocK::Type::BLACK;
   for(std::size_t i = 0; i < 22u; i++){
     arr[0 + (30 * i)] = Block::Type::BLACK;
     arr[12 + (30 * i)] = Block::Type::BLACK;
@@ -64,41 +63,4 @@ void write_separator(enum Block::Type * arr)
     arr[i + (30 * 17)] = Block::Type::BLACK;
     arr[i + (30 * 21)] = Block::Type::BLACK;
   }
-}
-
-void draw_border(enum Block::Type * arr)
-{
-  for(std::size_t i = 0; i < 16u; i++){
-    switch(sys::rng::wall()){
-    default:
-    case 0: arr[30+13+i] = Block::Type::WALL_A; break;
-    case 1: arr[30+13+i] = Block::Type::WALL_B; break;
-    case 2: arr[30+13+i] = Block::Type::WALL_C; break;
-    case 3: arr[30+13+i] = Block::Type::WALL_D; break;
-    }
-    switch(sys::rng::wall()){
-    default:
-    case 0: arr[480+13+i] = Block::Type::WALL_A; break;
-    case 1: arr[480+13+i] = Block::Type::WALL_B; break;
-    case 2: arr[480+13+i] = Block::Type::WALL_C; break;
-    case 3: arr[480+13+i] = Block::Type::WALL_D; break;
-    }
-  }
-  for(std::size_t i = 2; i < 16u; i++){
-    switch(sys::rng::wall()){
-    default:
-    case 0: arr[30*i+13] = Block::Type::WALL_A; break;
-    case 1: arr[30*i+13] = Block::Type::WALL_B; break;
-    case 2: arr[30*i+13] = Block::Type::WALL_C; break;
-    case 3: arr[30*i+13] = Block::Type::WALL_D; break;
-    }
-    switch(sys::rng::wall()){
-    default:
-    case 0: arr[30*i+28] = Block::Type::WALL_A; break;
-    case 1: arr[30*i+28] = Block::Type::WALL_B; break;
-    case 2: arr[30*i+28] = Block::Type::WALL_C; break;
-    case 3: arr[30*i+28] = Block::Type::WALL_D; break;
-    }
-  }
-  return;
 }
