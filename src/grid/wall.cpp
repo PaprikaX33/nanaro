@@ -100,9 +100,9 @@ void create_openings(enum Block::Type * arr, enum OpPoss pos)
     switch(pos){
     default:
     case OpPoss::TOP: arr[30+20+i] = Block::Type::BLANK; break;
-    case OpPoss::RGH: arr[30*(i+20)+28] = Block::Type::BLANK; break;
+    case OpPoss::RGH: arr[30*(i+8)+28] = Block::Type::BLANK; break;
     case OpPoss::BOT: arr[480+20+i] = Block::Type::BLANK; break;
-    case OpPoss::LFT: arr[30*(i+20)+13] = Block::Type::BLANK; break;
+    case OpPoss::LFT: arr[30*(i+8)+13] = Block::Type::BLANK; break;
     }
   }
 }

@@ -20,7 +20,7 @@ int main(int argc, char ** argv)
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type testingGrid[660u];
   for(std::size_t i = 0; i < 660u; i++){
-    testingGrid[i] = Block::Type::WHITE;
+    testingGrid[i] = Block::Type::EXIT_UNLOCKED;
   }
   testingGrid[30+1] = Block::Type::ZERO;
   testingGrid[30+2] = Block::Type::ONE;
