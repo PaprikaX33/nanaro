@@ -1,2 +1,4 @@
 add_subdirectory(Block)
 add_subdirectory(System)
+add_subdirectory(Sprite)
+add_subdirectory(Grid)

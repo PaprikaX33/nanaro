@@ -2,6 +2,7 @@
 #include "Block/Type.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
+#include "Grid/Wall.hpp"
 #include "System/Random.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -19,13 +20,7 @@ int main(int argc, char ** argv)
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type testingGrid[660u];
   for(std::size_t i = 0; i < 660u; i++){
-    switch(sys::rng::wall()){
-    case 0: testingGrid[i] = Block::Type::WALL_A; break;
-    case 1: testingGrid[i] = Block::Type::WALL_B; break;
-    case 2: testingGrid[i] = Block::Type::WALL_C; break;
-    default:
-    case 3: testingGrid[i] = Block::Type::WALL_D; break;
-    }
+    testingGrid[i] = Block::Type::EXIT_UNLOCKED;
   }
   testingGrid[30+1] = Block::Type::ZERO;
   testingGrid[30+2] = Block::Type::ONE;
@@ -37,6 +32,7 @@ int main(int argc, char ** argv)
   testingGrid[30+8] = Block::Type::SEVEN;
   testingGrid[30+9] = Block::Type::NINE;
   write_separator(testingGrid);
+  Grid::Border::draw(testingGrid, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -57,7 +53,6 @@ int main(int argc, char ** argv)
 
 void write_separator(enum Block::Type * arr)
 {
-  //arr[x + (30 * y)] = BlocK::Type::BLACK;
   for(std::size_t i = 0; i < 22u; i++){
     arr[0 + (30 * i)] = Block::Type::BLACK;
     arr[12 + (30 * i)] = Block::Type::BLACK;
