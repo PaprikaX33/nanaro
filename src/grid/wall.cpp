@@ -95,7 +95,6 @@ void Grid::Border::draw(enum Block::Type * arr, enum Grid::Border::Type type)
 
 void create_openings(enum Block::Type * arr, enum OpPoss pos)
 {
-  //20,21
   for(std::size_t i = 0u; i < 2u; i++){
     switch(pos){
     default:
