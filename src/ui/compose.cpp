@@ -26,7 +26,7 @@ enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat,
   if(stat){
     for(std::size_t i = 0; i < 3; i++) {
       for(std::size_t o = 0; o < 28; o++) {
-        renderBuff[(i+18)*30u+(o + 1)] = stat[i*11+o];
+        renderBuff[(i+18)*30u+(o + 1)] = stat[i*28+o];
       }
     }
   }
@@ -40,14 +40,14 @@ enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat,
   if(game){
     for(std::size_t i = 0; i < 16; i++) {
       for(std::size_t o = 0; o < 16; o++) {
-        renderBuff[(i+1)*30u+(o+14)] = game[i*11+o];
+        renderBuff[(i+1)*30u+(o+13)] = game[i*16+o];
       }
     }
   }
   else {
     for(std::size_t i = 0; i < 16; i++) {
       for(std::size_t o = 0; o < 16; o++) {
-        renderBuff[(i+1)*30u+(o+14)] = Block::Type::BLANK;
+        renderBuff[(i+1)*30u+(o+13)] = Block::Type::BLANK;
       }
     }
   }
