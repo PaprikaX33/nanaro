@@ -49,7 +49,12 @@ int main(int argc, char ** argv)
     }
   }
   for(std::size_t i = 0; i < 256u; i++){
-    game[i] = Block::Type::EXIT_UNLOCKED;
+    switch(i % 4u){
+    case 0: game[i] = Block::Type::ENEMY_UP; break;
+    case 1: game[i] = Block::Type::ENEMY_RIGHT; break;
+    case 2: game[i] = Block::Type::ENEMY_DOWN; break;
+    case 3: game[i] = Block::Type::ENEMY_LEFT; break;
+    }
   }
   Grid::Border::draw(game, Grid::Border::Type::MC);
   window.setView(viewScaler);
