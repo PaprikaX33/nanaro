@@ -4,11 +4,20 @@
 #include <cstddef>
 
 static enum Block::Type renderBuff[660u];
-static void write_separator(enum Block::Type * );
+static void write_separator();
 
-enum Block::Type * Ui::compose(enum Block::Type * item, enum Block::Type * status, enum Block::Type * game)
+enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat, enum Block::Type * game)
 {
-
+  //FOR TESTING
+  (void)stat; (void)game;
+  for(std::size_t i = 0; i < 660u; i++){
+    renderBuff[i] = Block::Type::PLAYER_RIGHT;
+  }
+  for(std::size_t i = 0; i < 16; i++) {
+    for(std::size_t o = 0; o < 11; o++) {
+      renderBuff[i*30u+o] = text[i*11+o];
+    }
+  }
   write_separator();
   return renderBuff;
 }

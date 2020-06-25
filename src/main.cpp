@@ -4,6 +4,7 @@
 #include "Sprite/Init.hpp"
 #include "Grid/Wall.hpp"
 #include "System/Random.hpp"
+#include "Ui/Compose.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <cstddef>
@@ -16,21 +17,31 @@ int main(int argc, char ** argv)
   sys::rng::init();
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
-  enum Block::Type testingGrid[660u];
-  for(std::size_t i = 0; i < 660u; i++){
-    testingGrid[i] = Block::Type::PLAYER_RIGHT;
-  }
-  testingGrid[30+1] = Block::Type::ZERO;
-  testingGrid[30+2] = Block::Type::ONE;
-  testingGrid[30+3] = Block::Type::TWO;
-  testingGrid[30+4] = Block::Type::THREE;
-  testingGrid[30+5] = Block::Type::FOUR;
-  testingGrid[30+6] = Block::Type::FIVE;
-  testingGrid[30+7] = Block::Type::SIX;
-  testingGrid[30+8] = Block::Type::SEVEN;
-  testingGrid[30+9] = Block::Type::NINE;
-  write_separator(testingGrid);
-  Grid::Border::draw(testingGrid, Grid::Border::Type::MC);
+  enum Block::Type text[176u]; //for testing
+  text[1] = Block::Type::ZERO;
+  text[2] = Block::Type::ONE;
+  text[3] = Block::Type::TWO;
+  text[4] = Block::Type::THREE;
+  text[5] = Block::Type::FOUR;
+  text[6] = Block::Type::FIVE;
+  text[7] = Block::Type::SIX;
+  text[8] = Block::Type::SEVEN;
+  text[9] = Block::Type::NINE;
+  //enum Block::Type testingGrid[660u];
+  // for(std::size_t i = 0; i < 660u; i++){
+  //   testingGrid[i] = Block::Type::PLAYER_RIGHT;
+  // }
+  // testingGrid[30+1] = Block::Type::ZERO;
+  // testingGrid[30+2] = Block::Type::ONE;
+  // testingGrid[30+3] = Block::Type::TWO;
+  // testingGrid[30+4] = Block::Type::THREE;
+  // testingGrid[30+5] = Block::Type::FOUR;
+  // testingGrid[30+6] = Block::Type::FIVE;
+  // testingGrid[30+7] = Block::Type::SIX;
+  // testingGrid[30+8] = Block::Type::SEVEN;
+  // testingGrid[30+9] = Block::Type::NINE;
+  // write_separator(testingGrid);
+  //Grid::Border::draw(testingGrid, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -43,7 +54,7 @@ int main(int argc, char ** argv)
       }
     }
     window.clear();
-    Sprite::draw(window, testingGrid);
+    Sprite::draw(window, Ui::compose(text, nullptr, nullptr)); //testing only
     window.display();
   }
   return 0;
