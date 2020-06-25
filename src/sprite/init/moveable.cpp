@@ -67,6 +67,26 @@ void Sprite::Init::enemy(Block::Colour * arr)
   Sprite::textureMap[Block::Type::ENEMY_LEFT] = texture;
   //ENEMY_DOWN
   reset_col(arr);
+  create_head_block(arr, 4,4);
+  for(std::size_t i = 0; i < 4; i++){
+    arr[arr_loc(i+4,1)] = Block::Colour::RED;
+    arr[arr_loc(i+4,2)] = Block::Colour::GREEN;
+    arr[arr_loc(i+4,3)] = Block::Colour::RED;
+  }
+  for(std::size_t i = 0; i < 3; i++){
+    arr[arr_loc(i+2,11-(i+2))] = Block::Colour::RED;
+    arr[arr_loc(i+7,i+7)] = Block::Colour::RED;
+    arr[arr_loc(i+1,10)] = Block::Colour::GREEN;
+    arr[arr_loc(i+8,10)] = Block::Colour::GREEN;
+    arr[arr_loc(5,8+i)] = Block::Colour::BLACK;
+    arr[arr_loc(6,8+i)] = Block::Colour::BLACK;
+  }
+  arr[arr_loc(3,9)] = Block::Colour::GREEN;
+  arr[arr_loc(8,9)] = Block::Colour::GREEN;
+  arr[arr_loc(5,6)] = Block::Colour::GREEN;
+  arr[arr_loc(6,6)] = Block::Colour::GREEN;
+  arr[arr_loc(4,5)] = Block::Colour::RED;
+  arr[arr_loc(7,5)] = Block::Colour::RED;
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::ENEMY_DOWN] = texture;
   //ENEMY_RIGHT
