@@ -98,9 +98,9 @@ void Sprite::Init::num(Block::Colour * arr)
     arr[arr_loc(i,6)] = Block::Colour::BLACK;
     arr[arr_loc(i,7)] = Block::Colour::BLACK;
   }
-  for(std::size_t i = 8; i < 11; i++){
-    arr[arr_loc(5,i)] = Block::Colour::BLACK;
-    arr[arr_loc(6,i)] = Block::Colour::BLACK;
+  for(std::size_t i = 2; i < 11; i++){
+    arr[arr_loc(7,i)] = Block::Colour::BLACK;
+    arr[arr_loc(8,i)] = Block::Colour::BLACK;
   }
   for(std::size_t i = 2; i < 6; i++){
     arr[arr_loc(i,7-i)] = Block::Colour::BLACK;
