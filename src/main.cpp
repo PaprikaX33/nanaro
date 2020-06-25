@@ -16,11 +16,11 @@ int main(int argc, char ** argv)
   (void)argc; (void)argv;
   Sprite::initialize();
   sys::rng::init();
-  sf::RenderWindow window(sf::VideoMode(800,600), "Hello World!");
+  sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type testingGrid[660u];
   for(std::size_t i = 0; i < 660u; i++){
-    testingGrid[i] = Block::Type::PLAYER_LEFT;
+    testingGrid[i] = Block::Type::PLAYER_RIGHT;
   }
   testingGrid[30+1] = Block::Type::ZERO;
   testingGrid[30+2] = Block::Type::ONE;
