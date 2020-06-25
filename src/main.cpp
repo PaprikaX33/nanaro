@@ -17,19 +17,26 @@ int main(int argc, char ** argv)
   sys::rng::init();
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
+  enum Block::Type game[256u];
   enum Block::Type text[176u]; //for testing
   for(std::size_t i = 0; i < 176u; i++){
-    text[i] = Block::Type::PLAYER_DOWN;
+    switch(i % 10u){
+    case 0: text[i] = Block::Type::ZERO; break;
+    case 1: text[i] = Block::Type::ONE; break;
+    case 2: text[i] = Block::Type::TWO; break;
+    case 3: text[i] = Block::Type::THREE; break;
+    case 4: text[i] = Block::Type::FOUR; break;
+    case 5: text[i] = Block::Type::FIVE; break;
+    case 6: text[i] = Block::Type::SIX; break;
+    case 7: text[i] = Block::Type::SEVEN; break;
+    case 8: text[i] = Block::Type::EIGHT; break;
+    case 9: text[i] = Block::Type::NINE; break;
+    }
   }
-  text[1] = Block::Type::ZERO;
-  text[2] = Block::Type::ONE;
-  text[3] = Block::Type::TWO;
-  text[4] = Block::Type::THREE;
-  text[5] = Block::Type::FOUR;
-  text[6] = Block::Type::FIVE;
-  text[7] = Block::Type::SIX;
-  text[8] = Block::Type::SEVEN;
-  text[9] = Block::Type::NINE;
+  for(std::size_t i = 0; i < 256u; i++){
+    game[i] = Block::Type::EXIT_UNLOCKED;
+  }
+
   //enum Block::Type testingGrid[660u];
   // for(std::size_t i = 0; i < 660u; i++){
   //   testingGrid[i] = Block::Type::PLAYER_RIGHT;
@@ -45,6 +52,7 @@ int main(int argc, char ** argv)
   // testingGrid[30+9] = Block::Type::NINE;
   // write_separator(testingGrid);
   //Grid::Border::draw(testingGrid, Grid::Border::Type::MC);
+  Grid::Border::draw(game, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -57,7 +65,7 @@ int main(int argc, char ** argv)
       }
     }
     window.clear();
-    Sprite::draw(window, Ui::compose(text, nullptr, nullptr)); //testing only
+    Sprite::draw(window, Ui::compose(text, nullptr, game)); //testing only
     window.display();
   }
   return 0;
