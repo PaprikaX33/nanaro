@@ -20,12 +20,12 @@ void Sprite::draw_invalid(Block::Colour * arr)
     }
   }
   for(std::size_t i = 0; i < 10; i++){
-    arr[arr_loc(i,1)] = Block::Colour::BLACK;
-    arr[arr_loc(1,i)] = Block::Colour::BLACK;
-    arr[arr_loc(i,10)] = Block::Colour::BLACK;
-    arr[arr_loc(10,i)] = Block::Colour::BLACK;
-    arr[arr_loc(i,i)] = Block::Colour::BLACK;
-    arr[arr_loc(i,11-i)] = Block::Colour::BLACK;
+    arr[arr_loc(i+1,1)] = Block::Colour::BLACK;
+    arr[arr_loc(1,i+1)] = Block::Colour::BLACK;
+    arr[arr_loc(i+1,10)] = Block::Colour::BLACK;
+    arr[arr_loc(10,i+1)] = Block::Colour::BLACK;
+    arr[arr_loc(i+1,i+1)] = Block::Colour::BLACK;
+    arr[arr_loc(i+1,10-i)] = Block::Colour::BLACK;
   }
   for(std::size_t i = 0; i < 3; i++){
     arr[arr_loc(i+2,5)] = Block::Colour::RED;
