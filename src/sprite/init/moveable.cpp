@@ -75,6 +75,25 @@ void Sprite::Init::player(Block::Colour * arr)
   Sprite::textureMap[Block::Type::PLAYER_DOWN] = texture;
   //PLAYER_LEFT
   reset_col(arr);
+  create_player_head(arr, 1,1);
+  for(std::size_t i = 2; i < 5; i++){
+    arr[arr_loc(i,5)] = Block::Colour::RED;
+  }
+  for(std::size_t i = 5; i < 10; i++){
+    arr[arr_loc(i,i)] = Block::Colour::RED;
+    arr[arr_loc(i+1,i)] = Block::Colour::RED;
+  }
+  for(std::size_t i = 2; i < 7; i++){
+    arr[arr_loc(i+0,i+4)] = Block::Colour::GREEN;
+    arr[arr_loc(i+1,i+4)] = Block::Colour::GREEN;
+    arr[arr_loc(i+2,i+4)] = Block::Colour::GREEN;
+    arr[arr_loc(i+3,i+4)] = Block::Colour::GREEN;
+  }
+  for(std::size_t i = 6; i < 11; i++){
+    arr[arr_loc(2,i)] = Block::Colour::BLACK;
+    arr[arr_loc(3,i)] = Block::Colour::BLACK;
+  }
+  arr[arr_loc(10,10)] = Block::Colour::RED;
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::PLAYER_LEFT] = texture;
   //PLAYER_RIGHT
