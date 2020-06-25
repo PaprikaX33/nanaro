@@ -9,8 +9,6 @@
 #include <cstddef>
 #include <iostream>
 
-void write_separator(enum Block::Type * );
-
 int main(int argc, char ** argv)
 {
   (void)argc; (void)argv;
@@ -49,18 +47,4 @@ int main(int argc, char ** argv)
     window.display();
   }
   return 0;
-}
-
-void write_separator(enum Block::Type * arr)
-{
-  for(std::size_t i = 0; i < 22u; i++){
-    arr[0 + (30 * i)] = Block::Type::BLACK;
-    arr[12 + (30 * i)] = Block::Type::BLACK;
-    arr[29 + (30 * i)] = Block::Type::BLACK;
-  }
-  for(std::size_t i = 0; i < 30u; i++){
-    arr[i + (30 * 0)] = Block::Type::BLACK;
-    arr[i + (30 * 17)] = Block::Type::BLACK;
-    arr[i + (30 * 21)] = Block::Type::BLACK;
-  }
 }
