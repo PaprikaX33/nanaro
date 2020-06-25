@@ -15,7 +15,7 @@ enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat,
   }
   for(std::size_t i = 0; i < 16; i++) {
     for(std::size_t o = 0; o < 11; o++) {
-      renderBuff[i*30u+o] = text[i*11+o];
+      renderBuff[(i+1)*30u+(o + 1)] = text[i*11+o];
     }
   }
   write_separator();
@@ -34,7 +34,7 @@ void write_separator()
     renderBuff[i + (30 * 17)] = Block::Type::BLACK;
     renderBuff[i + (30 * 21)] = Block::Type::BLACK;
   }
-  for(std::size_t i = 1; i < 16u; i++){
+  for(std::size_t i = 1; i < 17u; i++){
     renderBuff[12 + (30 * i)] = Block::Type::BLACK;
   }
 }

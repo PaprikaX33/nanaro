@@ -18,6 +18,9 @@ int main(int argc, char ** argv)
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type text[176u]; //for testing
+  for(std::size_t i = 0; i < 176u; i++){
+    text[i] = Block::Type::PLAYER_DOWN;
+  }
   text[1] = Block::Type::ZERO;
   text[2] = Block::Type::ONE;
   text[3] = Block::Type::TWO;
