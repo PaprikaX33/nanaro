@@ -99,10 +99,10 @@ void create_openings(enum Block::Type * arr, enum OpPoss pos)
   for(std::size_t i = 0u; i < 2u; i++){
     switch(pos){
     default:
-    case OpPoss::TOP: arr[8+i] = Block::Type::BLANK; break;
-    case OpPoss::RGH: arr[16*(i+8)+15] = Block::Type::BLANK; break;
-    case OpPoss::BOT: arr[(15*16)+8+i] = Block::Type::BLANK; break;
-    case OpPoss::LFT: arr[16*(i+8)] = Block::Type::BLANK; break;
+    case OpPoss::TOP: arr[7+i] = Block::Type::BLANK; break;
+    case OpPoss::RGH: arr[16*(i+7)+15] = Block::Type::BLANK; break;
+    case OpPoss::BOT: arr[(15*16)+7+i] = Block::Type::BLANK; break;
+    case OpPoss::LFT: arr[16*(i+7)] = Block::Type::BLANK; break;
     }
   }
 }
