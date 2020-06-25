@@ -17,33 +17,33 @@ void Grid::Border::draw(enum Block::Type * arr, enum Grid::Border::Type type)
   for(std::size_t i = 0; i < 16u; i++){
     switch(sys::rng::wall()){
     default:
-    case 0: arr[30+13+i] = Block::Type::WALL_A; break;
-    case 1: arr[30+13+i] = Block::Type::WALL_B; break;
-    case 2: arr[30+13+i] = Block::Type::WALL_C; break;
-    case 3: arr[30+13+i] = Block::Type::WALL_D; break;
+    case 0: arr[i] = Block::Type::WALL_A; break;
+    case 1: arr[i] = Block::Type::WALL_B; break;
+    case 2: arr[i] = Block::Type::WALL_C; break;
+    case 3: arr[i] = Block::Type::WALL_D; break;
     }
     switch(sys::rng::wall()){
     default:
-    case 0: arr[480+13+i] = Block::Type::WALL_A; break;
-    case 1: arr[480+13+i] = Block::Type::WALL_B; break;
-    case 2: arr[480+13+i] = Block::Type::WALL_C; break;
-    case 3: arr[480+13+i] = Block::Type::WALL_D; break;
+    case 0: arr[(15*16)+i] = Block::Type::WALL_A; break;
+    case 1: arr[(15*16)+i] = Block::Type::WALL_B; break;
+    case 2: arr[(15*16)+i] = Block::Type::WALL_C; break;
+    case 3: arr[(15*16)+i] = Block::Type::WALL_D; break;
     }
   }
-  for(std::size_t i = 2; i < 16u; i++){
+  for(std::size_t i = 1; i < 15u; i++){
     switch(sys::rng::wall()){
     default:
-    case 0: arr[30*i+13] = Block::Type::WALL_A; break;
-    case 1: arr[30*i+13] = Block::Type::WALL_B; break;
-    case 2: arr[30*i+13] = Block::Type::WALL_C; break;
-    case 3: arr[30*i+13] = Block::Type::WALL_D; break;
+    case 0: arr[16*i] = Block::Type::WALL_A; break;
+    case 1: arr[16*i] = Block::Type::WALL_B; break;
+    case 2: arr[16*i] = Block::Type::WALL_C; break;
+    case 3: arr[16*i] = Block::Type::WALL_D; break;
     }
     switch(sys::rng::wall()){
     default:
-    case 0: arr[30*i+28] = Block::Type::WALL_A; break;
-    case 1: arr[30*i+28] = Block::Type::WALL_B; break;
-    case 2: arr[30*i+28] = Block::Type::WALL_C; break;
-    case 3: arr[30*i+28] = Block::Type::WALL_D; break;
+    case 0: arr[(i*16)+15] = Block::Type::WALL_A; break;
+    case 1: arr[(i*16)+15] = Block::Type::WALL_B; break;
+    case 2: arr[(i*16)+15] = Block::Type::WALL_C; break;
+    case 3: arr[(i*16)+15] = Block::Type::WALL_D; break;
     }
   }
   switch(type) {
@@ -95,14 +95,13 @@ void Grid::Border::draw(enum Block::Type * arr, enum Grid::Border::Type type)
 
 void create_openings(enum Block::Type * arr, enum OpPoss pos)
 {
-  //20,21
   for(std::size_t i = 0u; i < 2u; i++){
     switch(pos){
     default:
-    case OpPoss::TOP: arr[30+20+i] = Block::Type::BLANK; break;
-    case OpPoss::RGH: arr[30*(i+8)+28] = Block::Type::BLANK; break;
-    case OpPoss::BOT: arr[480+20+i] = Block::Type::BLANK; break;
-    case OpPoss::LFT: arr[30*(i+8)+13] = Block::Type::BLANK; break;
+    case OpPoss::TOP: arr[7+i] = Block::Type::BLANK; break;
+    case OpPoss::RGH: arr[16*(i+7)+15] = Block::Type::BLANK; break;
+    case OpPoss::BOT: arr[(15*16)+7+i] = Block::Type::BLANK; break;
+    case OpPoss::LFT: arr[16*(i+7)] = Block::Type::BLANK; break;
     }
   }
 }
