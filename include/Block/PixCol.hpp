@@ -7,7 +7,8 @@ namespace Block {
                                    WHITE,
                                    BLACK,
                                    RED,
-                                   GREEN
+                                   GREEN,
+                                   BLANK = WHITE
   };
 }
 

@@ -5,7 +5,7 @@
 #include <cstddef>
 
 using Sprite::arr_loc;
-static void create_player_head(Block::Colour * arr, std::size_t padx, std::size_t pady);
+static void create_head_block(Block::Colour * arr, std::size_t padx, std::size_t pady);
 
 void Sprite::Init::enemy(Block::Colour * arr)
 {
@@ -16,7 +16,7 @@ void Sprite::Init::enemy(Block::Colour * arr)
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::ENEMY_UP] = texture;
   //ENEMY_LEFT
-  // reset_col(arr);
+  //reset_col(arr);
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::ENEMY_LEFT] = texture;
   //ENEMY_DOWN
@@ -24,7 +24,36 @@ void Sprite::Init::enemy(Block::Colour * arr)
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::ENEMY_DOWN] = texture;
   //ENEMY_RIGHT
-  // reset_col(arr);
+  reset_col(arr);
+  create_head_block(arr, 6,1);
+  for(std::size_t i = 7; i < 9; i++){
+    arr[arr_loc(1,i)] = Block::Colour::BLANK;
+  }
+  for(std::size_t i = 2; i < 8; i++){
+    arr[arr_loc(i,12-i)] = Block::Colour::BLACK;
+    arr[arr_loc(i+1,12-i)] = Block::Colour::BLACK;
+  }
+  for(std::size_t i = 4; i < 11; i++){
+    arr[arr_loc(1,i)] = Block::Colour::BLACK;
+  }
+  for(std::size_t i = 2; i < 5; i++){
+    arr[arr_loc(i,i+1)] = Block::Colour::RED;
+  }
+  for(std::size_t i = 8; i < 11; i++){
+    arr[arr_loc(i,7)] = Block::Colour::GREEN;
+    arr[arr_loc(i,8)] = Block::Colour::GREEN;
+  }
+  for(std::size_t i = 5; i < 8; i++){
+    arr[arr_loc(9,i)] = Block::Colour::RED;
+  }
+  arr[arr_loc(2,4)] = Block::Colour::BLACK;
+  arr[arr_loc(8,2)] = Block::Colour::RED;
+  arr[arr_loc(10,2)] = Block::Colour::GREEN;
+  arr[arr_loc(2,5)] = Block::Colour::RED;
+  arr[arr_loc(4,3)] = Block::Colour::RED;
+  arr[arr_loc(3,3)] = Block::Colour::GREEN;
+  arr[arr_loc(4,4)] = Block::Colour::GREEN;
+  arr[arr_loc(3,5)] = Block::Colour::GREEN;
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::ENEMY_RIGHT] = texture;
   //ENEMY_HIT
@@ -38,7 +67,7 @@ void Sprite::Init::player(Block::Colour * arr)
   sf::Texture texture;
   //PLAYER_UP
   reset_col(arr);
-  create_player_head(arr, 4,1);
+  create_head_block(arr, 4,1);
   for(std::size_t i = 4; i < 8; i++){
     arr[arr_loc(i,5)] = Block::Colour::RED;
   }
@@ -75,7 +104,7 @@ void Sprite::Init::player(Block::Colour * arr)
   Sprite::textureMap[Block::Type::PLAYER_DOWN] = texture;
   //PLAYER_LEFT
   reset_col(arr);
-  create_player_head(arr, 1,1);
+  create_head_block(arr, 1,1);
   for(std::size_t i = 2; i < 5; i++){
     arr[arr_loc(i,5)] = Block::Colour::RED;
   }
@@ -98,7 +127,7 @@ void Sprite::Init::player(Block::Colour * arr)
   Sprite::textureMap[Block::Type::PLAYER_LEFT] = texture;
   //PLAYER_RIGHT
   reset_col(arr);
-  create_player_head(arr, 7,1);
+  create_head_block(arr, 7,1);
   for(std::size_t i = 7; i < 10; i++){
     arr[arr_loc(i,5)] = Block::Colour::RED;
   }
@@ -127,7 +156,7 @@ void Sprite::Init::player(Block::Colour * arr)
   Sprite::textureMap[Block::Type::PLAYER_HIT] = texture;
 }
 
-void create_player_head(Block::Colour * arr, std::size_t x, std::size_t y)
+void create_head_block(Block::Colour * arr, std::size_t x, std::size_t y)
 {
   //arr[arr_loc(8,7)] = Block::Colour::BLACK;
   for(std::size_t i = 0; i < 4; i++){
