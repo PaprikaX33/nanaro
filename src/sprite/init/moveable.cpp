@@ -1,6 +1,7 @@
 #include "Block/Image.hpp"
 #include "Sprite/UnitInit.hpp"
 #include "Sprite/Properties.hpp"
+#include "Sprite/Invalid.hpp"
 #include <SFML/Graphics/Texture.hpp>
 #include <cstddef>
 
@@ -124,7 +125,7 @@ void Sprite::Init::enemy(Block::Colour * arr)
   Sprite::textureMap[Block::Type::ENEMY_RIGHT] = texture;
   //TODO: ENEMY HIT
   //ENEMY_HIT
-  // reset_col(arr);
+  Sprite::draw_invalid(arr);
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::ENEMY_HIT] = texture;
 }
@@ -219,7 +220,7 @@ void Sprite::Init::player(Block::Colour * arr)
   Sprite::textureMap[Block::Type::PLAYER_RIGHT] = texture;
   //PLAYER_HIT
   //TODO: PLAYER HIT
-  reset_col(arr);
+  Sprite::draw_invalid(arr);
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::PLAYER_HIT] = texture;
 }
