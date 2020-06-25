@@ -12,6 +12,8 @@ void Sprite::initialize(void)
   Sprite::Init::opaque(arr);
   Sprite::Init::wall(arr);
   Sprite::Init::exit(arr);
+  Sprite::Init::enemy(arr);
+  Sprite::Init::player(arr);
 
   //WEAPON_MELEE_UP
   //WEAPON_MELEE_LEFT
