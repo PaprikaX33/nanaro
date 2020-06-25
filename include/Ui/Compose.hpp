@@ -3,8 +3,8 @@
 #include "Block/Type.hpp"
 
 namespace Ui {
-  //Text: 11x20 = 220
-  //Stat: 16x03 = 048
+  //Text: 11x16 = 176
+  //Stat: 28x03 = 084
   //Game: 16x16 = 256
   enum Block::Type * compose(enum Block::Type * text, enum Block::Type * stat, enum Block::Type * game);
   //Returned array should be passed directly to Sprite::draw
