@@ -14,8 +14,6 @@ void Sprite::Init::enemy(Block::Colour * arr)
   reset_col(arr);
   create_head_block(arr, 4,1);
   for(std::size_t i = 0; i < 4; i++){
-    // arr[arr_loc(i+1,6)] = Block::Colour::GREEN;
-    // arr[arr_loc(i+7,6)] = Block::Colour::GREEN;
     arr[arr_loc(i+4,8)] = Block::Colour::RED;
     arr[arr_loc(i+4,9)] = Block::Colour::GREEN;
     arr[arr_loc(i+4,10)] = Block::Colour::RED;
@@ -30,12 +28,6 @@ void Sprite::Init::enemy(Block::Colour * arr)
     arr[arr_loc(5,i)] = Block::Colour::BLACK;
     arr[arr_loc(6,i)] = Block::Colour::BLACK;
   }
-  // for(std::size_t i = 0; i < 2; i++){
-  //   arr[arr_loc(i+2,5)] = Block::Colour::RED;
-  //   arr[arr_loc(i+8,5)] = Block::Colour::RED;
-  // }
-  // arr[arr_loc(3,4)] = Block::Colour::RED;
-  // arr[arr_loc(8,4)] = Block::Colour::RED;
   arr[arr_loc(3,7)] = Block::Colour::GREEN;
   arr[arr_loc(8,7)] = Block::Colour::GREEN;
   texture.loadFromImage(Block::to_image(arr));
