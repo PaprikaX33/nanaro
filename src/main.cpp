@@ -20,6 +20,7 @@ int main(int argc, char ** argv)
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type game[256u];
+  enum Block::Type gamePlain[256u];
   enum Block::Type stat[84u];
   enum Block::Type text[176u]; //for testing
   for(std::size_t i = 0; i < 176u; i++){
@@ -51,7 +52,7 @@ int main(int argc, char ** argv)
     }
   }
   for(std::size_t i = 0; i < 256u; i++){
-    game[i] = Block::Type::BLANK;
+    gamePlain[i] = Block::Type::BLANK;
     // switch(i % 5u){
     // case 0: game[i] = Block::Type::ENEMY_UP; break;
     // case 1: game[i] = Block::Type::ENEMY_RIGHT; break;
@@ -60,7 +61,7 @@ int main(int argc, char ** argv)
     // case 4: game[i] = Block::Type::ENEMY_HIT; break;
     // }
   }
-  Grid::Border::draw(game, Grid::Border::Type::MC);
+  Grid::Border::draw(gamePlain, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -91,6 +92,9 @@ int main(int argc, char ** argv)
       default:
         break;
       }
+    }
+    for(std::size_t i = 0; i < 256u; i++){
+      game[i] = gamePlain[i];
     }
     play.game_display_draw(game);
     window.clear();
