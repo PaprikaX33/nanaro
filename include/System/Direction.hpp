@@ -4,7 +4,7 @@
 namespace sys {
   enum class Dir {
                   TOP,
-                  RHT,
+                  RGH,
                   BOT,
                   LFT
   };
