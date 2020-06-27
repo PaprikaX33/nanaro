@@ -9,7 +9,9 @@ void Player::state_update(Action act)
       --pos.y;
     }
     else {
-      pos.y = 14;
+      if(pos.x == 7 || pos.x == 8){
+        pos.y = 14;
+      }
     }
     faceDir = sys::Dir::TOP;
     break;
@@ -18,7 +20,9 @@ void Player::state_update(Action act)
       ++pos.x;
     }
     else {
-      pos.x = 1;
+      if(pos.y == 7 || pos.y == 8){
+        pos.x = 1;
+      }
     }
     faceDir = sys::Dir::RGH;
     break;
@@ -27,7 +31,9 @@ void Player::state_update(Action act)
       ++pos.y;
     }
     else {
-      pos.y = 1;
+      if(pos.x == 7 || pos.x == 8){
+        pos.y = 1;
+      }
     }
     faceDir = sys::Dir::BOT;
     break;
@@ -36,7 +42,9 @@ void Player::state_update(Action act)
       --pos.x;
     }
     else {
-      pos.x = 14;
+      if(pos.y == 7 || pos.y == 8){
+        pos.x = 14;
+      }
     }
     faceDir = sys::Dir::LFT;
     break;
