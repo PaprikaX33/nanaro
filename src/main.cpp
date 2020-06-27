@@ -51,15 +51,15 @@ int main(int argc, char ** argv)
     }
   }
   for(std::size_t i = 0; i < 256u; i++){
-    switch(i % 5u){
-    case 0: game[i] = Block::Type::ENEMY_UP; break;
-    case 1: game[i] = Block::Type::ENEMY_RIGHT; break;
-    case 2: game[i] = Block::Type::ENEMY_DOWN; break;
-    case 3: game[i] = Block::Type::ENEMY_LEFT; break;
-    case 4: game[i] = Block::Type::ENEMY_HIT; break;
-    }
+    game[i] = Block::Type::BLANK;
+    // switch(i % 5u){
+    // case 0: game[i] = Block::Type::ENEMY_UP; break;
+    // case 1: game[i] = Block::Type::ENEMY_RIGHT; break;
+    // case 2: game[i] = Block::Type::ENEMY_DOWN; break;
+    // case 3: game[i] = Block::Type::ENEMY_LEFT; break;
+    // case 4: game[i] = Block::Type::ENEMY_HIT; break;
+    // }
   }
-  play.game_display_draw(game);
   Grid::Border::draw(game, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
@@ -67,11 +67,32 @@ int main(int argc, char ** argv)
     sf::Event event;
     while (window.pollEvent(event)){
       if(event.type == sf::Event::Closed ||
-         (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Button::Right) ||
-         (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::Q && event.key.control)){
+         (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Button::Right)){// ||
+         //(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::Q && event.key.control)){
         window.close();
+        break;
+      }
+      switch(event.type){
+      case sf::Event::KeyReleased:
+        switch(event.key.code){
+        case sf::Keyboard::Key::Q:
+          if(event.key.control){
+            window.close();
+          }
+          break;
+        case sf::Keyboard::Key::W: play.state_update(Player::Action::MOVE_TOP); break;
+        case sf::Keyboard::Key::A: play.state_update(Player::Action::MOVE_LFT); break;
+        case sf::Keyboard::Key::S: play.state_update(Player::Action::MOVE_BOT); break;
+        case sf::Keyboard::Key::D: play.state_update(Player::Action::MOVE_RGH); break;
+        default:
+          break;
+        }
+        break;
+      default:
+        break;
       }
     }
+    play.game_display_draw(game);
     window.clear();
     Sprite::draw(window, Ui::compose(text, stat, game)); //testing only
     window.display();
