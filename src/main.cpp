@@ -16,6 +16,7 @@ int main(int argc, char ** argv)
   (void)argc; (void)argv;
   Sprite::initialize();
   sys::rng::init();
+  Player play;
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type game[256u];
@@ -58,6 +59,7 @@ int main(int argc, char ** argv)
     case 4: game[i] = Block::Type::ENEMY_HIT; break;
     }
   }
+  play.game_display_draw(game);
   Grid::Border::draw(game, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);

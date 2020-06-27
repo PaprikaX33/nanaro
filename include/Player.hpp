@@ -13,10 +13,10 @@ struct Player{
                      ATTACK_RNG,
                      ATTACK_MLE
   };
-  sys::Pairf pos;
-  enum sys::Dir direction;
+  sys::Pairu pos; //1-15 (Should not go to wall)
+  enum sys::Dir faceDir;
   void state_update(Action);
-  void game_display_draw(Block::Type *) const;
+  void game_display_draw(Block::Type *) const; //Block array of the game field
   //void hit(void);
   Player();
   ~Player();
