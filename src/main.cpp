@@ -1,4 +1,5 @@
 #include "Block/PixCol.hpp"
+#include "Player/Properties.hpp"
 #include "Block/Type.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"

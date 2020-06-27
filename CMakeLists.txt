@@ -97,7 +97,9 @@ set(INCLUDE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Colour.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Sprite/Draw.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Random.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Pair.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Ui/Compose.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Player/Properties.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Type.hpp
   )
 
