@@ -1,5 +1,4 @@
 #include "Player.hpp"
-#include <iostream>
 
 void Player::state_update(Action act)
 {
@@ -52,7 +51,6 @@ void Player::state_update(Action act)
   case Player::Action::ATTACK_RNG:break;
   case Player::Action::ATTACK_MLE:break;
   }
-  std::cout << pos.x << ",\t" << pos.y << '\n';
 }
 
 void Player::game_display_draw(Block::Type * arr) const
