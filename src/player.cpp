@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include <iostream>
 
 void Player::state_update(Action act)
 {
@@ -8,37 +9,42 @@ void Player::state_update(Action act)
       --pos.y;
     }
     else {
-      pos.y = 15;
+      pos.y = 14;
     }
+    faceDir = sys::Dir::TOP;
     break;
   case Player::Action::MOVE_RGH:
-    if(pos.x != 15){
+    if(pos.x != 14){
       ++pos.x;
     }
     else {
       pos.x = 1;
     }
+    faceDir = sys::Dir::RGH;
     break;
   case Player::Action::MOVE_BOT:
-    if(pos.y != 15){
+    if(pos.y != 14){
       ++pos.y;
     }
     else {
       pos.y = 1;
     }
+    faceDir = sys::Dir::BOT;
     break;
   case Player::Action::MOVE_LFT:
     if(pos.x != 1){
       --pos.x;
     }
     else {
-      pos.x = 15;
+      pos.x = 14;
     }
+    faceDir = sys::Dir::LFT;
     break;
     //default:
   case Player::Action::ATTACK_RNG:break;
   case Player::Action::ATTACK_MLE:break;
   }
+  std::cout << pos.x << ",\t" << pos.y << '\n';
 }
 
 void Player::game_display_draw(Block::Type * arr) const

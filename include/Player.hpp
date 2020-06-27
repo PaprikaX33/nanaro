@@ -13,7 +13,7 @@ struct Player{
                      ATTACK_RNG,
                      ATTACK_MLE
   };
-  sys::Pairu pos; //1-15 (Should not go to wall)
+  sys::Pairu pos; //1-14 (Should not replace wall)
   enum sys::Dir faceDir;
   void state_update(Action);
   void game_display_draw(Block::Type *) const; //Block array of the game field
