@@ -77,6 +77,7 @@ add_subdirectory(include)
 set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/player.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/draw.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/invalid.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/basic.cpp
