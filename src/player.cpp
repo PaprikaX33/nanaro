@@ -4,7 +4,7 @@ void Player::state_update(Action act)
 {
   switch(act){
   case Player::Action::MOVE_TOP:
-    if(pos.y == 1){
+    if(pos.y != 1){
       --pos.y;
     }
     else {
@@ -12,7 +12,7 @@ void Player::state_update(Action act)
     }
     break;
   case Player::Action::MOVE_RGH:
-    if(pos.x == 15){
+    if(pos.x != 15){
       ++pos.x;
     }
     else {
@@ -20,7 +20,7 @@ void Player::state_update(Action act)
     }
     break;
   case Player::Action::MOVE_BOT:
-    if(pos.y == 15){
+    if(pos.y != 15){
       ++pos.y;
     }
     else {
@@ -28,7 +28,7 @@ void Player::state_update(Action act)
     }
     break;
   case Player::Action::MOVE_LFT:
-    if(pos.x == 1){
+    if(pos.x != 1){
       --pos.x;
     }
     else {
