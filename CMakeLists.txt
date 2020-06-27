@@ -77,6 +77,7 @@ add_subdirectory(include)
 set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/player.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/draw.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/invalid.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/basic.cpp
@@ -97,7 +98,10 @@ set(INCLUDE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Block/Colour.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Sprite/Draw.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Random.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Pair.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Direction.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Ui/Compose.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Player.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Type.hpp
   )
 

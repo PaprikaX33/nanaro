@@ -1,4 +1,5 @@
 #include "Block/PixCol.hpp"
+#include "Player.hpp"
 #include "Block/Type.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
@@ -15,9 +16,11 @@ int main(int argc, char ** argv)
   (void)argc; (void)argv;
   Sprite::initialize();
   sys::rng::init();
+  Player play;
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type game[256u];
+  enum Block::Type gamePlain[256u];
   enum Block::Type stat[84u];
   enum Block::Type text[176u]; //for testing
   for(std::size_t i = 0; i < 176u; i++){
@@ -49,26 +52,51 @@ int main(int argc, char ** argv)
     }
   }
   for(std::size_t i = 0; i < 256u; i++){
-    switch(i % 5u){
-    case 0: game[i] = Block::Type::ENEMY_UP; break;
-    case 1: game[i] = Block::Type::ENEMY_RIGHT; break;
-    case 2: game[i] = Block::Type::ENEMY_DOWN; break;
-    case 3: game[i] = Block::Type::ENEMY_LEFT; break;
-    case 4: game[i] = Block::Type::ENEMY_HIT; break;
-    }
+    gamePlain[i] = Block::Type::BLANK;
+    // switch(i % 5u){
+    // case 0: game[i] = Block::Type::ENEMY_UP; break;
+    // case 1: game[i] = Block::Type::ENEMY_RIGHT; break;
+    // case 2: game[i] = Block::Type::ENEMY_DOWN; break;
+    // case 3: game[i] = Block::Type::ENEMY_LEFT; break;
+    // case 4: game[i] = Block::Type::ENEMY_HIT; break;
+    // }
   }
-  Grid::Border::draw(game, Grid::Border::Type::MC);
+  Grid::Border::draw(gamePlain, Grid::Border::Type::MC);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
     sf::Event event;
     while (window.pollEvent(event)){
       if(event.type == sf::Event::Closed ||
-         (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Button::Right) ||
-         (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::Q && event.key.control)){
+         (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Button::Right)){// ||
+         //(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::Q && event.key.control)){
         window.close();
+        break;
+      }
+      switch(event.type){
+      case sf::Event::KeyReleased:
+        switch(event.key.code){
+        case sf::Keyboard::Key::Q:
+          if(event.key.control){
+            window.close();
+          }
+          break;
+        case sf::Keyboard::Key::W: play.state_update(Player::Action::MOVE_TOP); break;
+        case sf::Keyboard::Key::A: play.state_update(Player::Action::MOVE_LFT); break;
+        case sf::Keyboard::Key::S: play.state_update(Player::Action::MOVE_BOT); break;
+        case sf::Keyboard::Key::D: play.state_update(Player::Action::MOVE_RGH); break;
+        default:
+          break;
+        }
+        break;
+      default:
+        break;
       }
     }
+    for(std::size_t i = 0; i < 256u; i++){
+      game[i] = gamePlain[i];
+    }
+    play.game_display_draw(game);
     window.clear();
     Sprite::draw(window, Ui::compose(text, stat, game)); //testing only
     window.display();
