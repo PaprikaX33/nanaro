@@ -83,6 +83,9 @@ namespace Block{
                                   DASH,
                                   SPACE = OPAQUE_WHITE,
 
+                                  //INVALID
+                                  INVALID,
+
                                   //QOL
                                   WHITE = OPAQUE_WHITE,
                                   BLACK = OPAQUE_BLACK,
