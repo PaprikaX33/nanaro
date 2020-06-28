@@ -4,48 +4,48 @@ void Player::state_update(Action act)
 {
   switch(act){
   case Player::Action::MOVE_TOP:
-    if(pos.y != 1){
-      --pos.y;
+    if(_pos.y != 1){
+      --_pos.y;
     }
     else {
-      if(pos.x == 7 || pos.x == 8){
-        pos.y = 14;
+      if(_pos.x == 7 || _pos.x == 8){
+        _pos.y = 14;
       }
     }
-    faceDir = sys::Dir::TOP;
+    _faceDir = sys::Dir::TOP;
     break;
   case Player::Action::MOVE_RGH:
-    if(pos.x != 14){
-      ++pos.x;
+    if(_pos.x != 14){
+      ++_pos.x;
     }
     else {
-      if(pos.y == 7 || pos.y == 8){
-        pos.x = 1;
+      if(_pos.y == 7 || _pos.y == 8){
+        _pos.x = 1;
       }
     }
-    faceDir = sys::Dir::RGH;
+    _faceDir = sys::Dir::RGH;
     break;
   case Player::Action::MOVE_BOT:
-    if(pos.y != 14){
-      ++pos.y;
+    if(_pos.y != 14){
+      ++_pos.y;
     }
     else {
-      if(pos.x == 7 || pos.x == 8){
-        pos.y = 1;
+      if(_pos.x == 7 || _pos.x == 8){
+        _pos.y = 1;
       }
     }
-    faceDir = sys::Dir::BOT;
+    _faceDir = sys::Dir::BOT;
     break;
   case Player::Action::MOVE_LFT:
-    if(pos.x != 1){
-      --pos.x;
+    if(_pos.x != 1){
+      --_pos.x;
     }
     else {
-      if(pos.y == 7 || pos.y == 8){
-        pos.x = 14;
+      if(_pos.y == 7 || _pos.y == 8){
+        _pos.x = 14;
       }
     }
-    faceDir = sys::Dir::LFT;
+    _faceDir = sys::Dir::LFT;
     break;
     //default:
   case Player::Action::ATTACK_RNG:break;
@@ -55,8 +55,8 @@ void Player::state_update(Action act)
 
 void Player::game_display_draw(Block::Type * arr) const
 {
-  std::size_t const loc = pos.y * 16 + pos.x;
-  switch(faceDir){
+  std::size_t const loc = _pos.y * 16 + _pos.x;
+  switch(_faceDir){
   case sys::Dir::TOP: arr[loc] = Block::Type::PLAYER_UP; break;
   case sys::Dir::RGH: arr[loc] = Block::Type::PLAYER_RIGHT; break;
   case sys::Dir::BOT: arr[loc] = Block::Type::PLAYER_DOWN; break;
@@ -65,8 +65,8 @@ void Player::game_display_draw(Block::Type * arr) const
 }
 
 Player::Player():
-  pos{7,7},
-  faceDir{sys::Dir::RGH}
+  _pos{7,7},
+  _faceDir{sys::Dir::RGH}
 {
 }
 

@@ -1,6 +1,7 @@
 #include "Block/Image.hpp"
 #include "Sprite/UnitInit.hpp"
 #include "Sprite/Properties.hpp"
+#include "Sprite/Invalid.hpp"
 #include <SFML/Graphics/Texture.hpp>
 #include <cstddef>
 
@@ -34,6 +35,10 @@ void Sprite::Init::opaque(Block::Colour * arr)
   }
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::OPAQUE_GREEN] = texture;
+  //INVALID SPRITE
+  Sprite::draw_invalid(arr);
+  texture.loadFromImage(Block::to_image(arr));
+  Sprite::textureMap[Block::Type::INVALID] = texture;
 }
 
 void Sprite::Init::wall(Block::Colour * arr)

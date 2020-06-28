@@ -3,7 +3,10 @@
 #include <cstdint>
 
 namespace Block{
-  enum class Type : std::uint8_t {//OPAQUE BLOCK
+  enum class Type : std::uint8_t {
+                                  //INVALID
+                                  INVALID,
+                                  //OPAQUE BLOCK
                                   OPAQUE_WHITE,
                                   OPAQUE_BLACK,
                                   OPAQUE_RED,

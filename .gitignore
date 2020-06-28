@@ -99,3 +99,8 @@ docs/
 
 #note file
 *.note
+
+#GNU TAGS
+GTAGS
+GPATH
+GRTAGS
