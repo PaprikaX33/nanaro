@@ -86,6 +86,7 @@ set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/colour.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/image.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/wall.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/layout.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sys/random.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/ui/compose.cpp
   )
@@ -103,6 +104,8 @@ set(INCLUDE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Ui/Compose.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Player.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Type.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Layout.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Wall.hpp
   )
 
 add_executable(${EXECUTABLE_NAME}

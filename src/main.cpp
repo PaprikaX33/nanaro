@@ -4,6 +4,7 @@
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
 #include "Grid/Wall.hpp"
+#include "Grid/Layout.hpp"
 #include "System/Random.hpp"
 #include "Ui/Compose.hpp"
 #include <SFML/Graphics.hpp>
@@ -16,8 +17,12 @@ int main(int argc, char ** argv)
   (void)argc; (void)argv;
   Sprite::initialize();
   sys::rng::init();
+  auto const layout = Grid::generate_layout(12);
   Player play;
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
+  for(auto const i : layout){
+    std::cout << i.first << '\t' << i.second << '\n';
+  }
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type game[256u];
   enum Block::Type gamePlain[256u];
