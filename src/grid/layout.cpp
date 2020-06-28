@@ -1,6 +1,7 @@
 #include "Grid/Layout.hpp"
 #include "System/Random.hpp"
 #include <utility>
+#include <iostream>
 
 Grid::LocSet Grid::generate_layout(std::size_t count)
 {
