@@ -98,8 +98,13 @@ int main(int argc, char ** argv)
     }
     play.game_display_draw(game);
     window.clear();
-    Sprite::draw(window, Ui::compose(text, stat, game)); //testing only
+    Sprite::draw(window, Ui::compose(text, stat, game));
+    //Sprite::draw(window, Ui::compose(nullptr, nullptr, nullptr)); //testing only
     window.display();
   }
+  (void)game;
+  (void)gamePlain;
+  (void)stat;
+  (void)text;
   return 0;
 }

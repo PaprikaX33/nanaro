@@ -35,7 +35,7 @@ void Sprite::Init::opaque(Block::Colour * arr)
   }
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::OPAQUE_GREEN] = texture;
-
+  //INVALID SPRITE
   Sprite::draw_invalid(arr);
   texture.loadFromImage(Block::to_image(arr));
   Sprite::textureMap[Block::Type::INVALID] = texture;

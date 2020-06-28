@@ -8,8 +8,7 @@ static void write_separator();
 
 enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat, enum Block::Type * game)
 {
-  //FOR TESTING
-  if(text){
+  if(text) {
     for(std::size_t i = 0; i < 16; i++) {
       for(std::size_t o = 0; o < 11; o++) {
         renderBuff[(i+1)*30u+(o + 1)] = text[i*11+o];
@@ -19,11 +18,11 @@ enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat,
   else {
     for(std::size_t i = 0; i < 16; i++) {
       for(std::size_t o = 0; o < 11; o++) {
-        renderBuff[(i+1)*30u+(o + 1)] = Block::Type::BLANK;
+        renderBuff[(i+1)*30u+(o + 1)] = Block::Type::INVALID;
       }
     }
   }
-  if(stat){
+  if(stat) {
     for(std::size_t i = 0; i < 3; i++) {
       for(std::size_t o = 0; o < 28; o++) {
         renderBuff[(i+18)*30u+(o + 1)] = stat[i*28+o];
@@ -33,11 +32,11 @@ enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat,
   else {
     for(std::size_t i = 0; i < 3; i++) {
       for(std::size_t o = 0; o < 28; o++) {
-        renderBuff[(i+18)*30u+(o + 1)] = Block::Type::BLANK;
+        renderBuff[(i+18)*30u+(o + 1)] = Block::Type::INVALID;
       }
     }
   }
-  if(game){
+  if(game) {
     for(std::size_t i = 0; i < 16; i++) {
       for(std::size_t o = 0; o < 16; o++) {
         renderBuff[(i+1)*30u+(o+13)] = game[i*16+o];
@@ -47,7 +46,7 @@ enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat,
   else {
     for(std::size_t i = 0; i < 16; i++) {
       for(std::size_t o = 0; o < 16; o++) {
-        renderBuff[(i+1)*30u+(o+13)] = Block::Type::BLANK;
+        renderBuff[(i+1)*30u+(o+13)] = Block::Type::INVALID;
       }
     }
   }

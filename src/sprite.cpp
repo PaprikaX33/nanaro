@@ -71,4 +71,4 @@ void Sprite::Init::reset_col(Block::Colour * col)
   }
 }
 
-std::unordered_map<enum Block::Type, sf::Texture> Sprite::textureMap(76);
+std::unordered_map<enum Block::Type, sf::Texture> Sprite::textureMap(77);
