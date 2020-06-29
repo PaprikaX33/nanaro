@@ -4,7 +4,12 @@
 
 Block::Type const * Grid::get(std::pair<int,int> const & pos)
 {
-  if(Grid::textureMap.count(pos))
+  if(Grid::textureMap.count(pos)){
+    return Grid::textureMap[pos].data();
+  }
+  else {
+    return nullptr;
+  }
 }
 
 

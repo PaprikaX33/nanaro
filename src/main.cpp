@@ -1,11 +1,13 @@
-#include "Block/PixCol.hpp"
-#include "Player.hpp"
 #include "Block/Numeric.hpp"
+#include "Block/PixCol.hpp"
 #include "Block/Type.hpp"
+#include "Grid/Generate.hpp"
+#include "Grid/Get.hpp"
+#include "Grid/Layout.hpp"
+#include "Grid/Wall.hpp"
+#include "Player.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
-#include "Grid/Wall.hpp"
-#include "Grid/Layout.hpp"
 #include "System/Random.hpp"
 #include "Ui/Compose.hpp"
 #include <SFML/Graphics.hpp>
@@ -27,7 +29,7 @@ int main(int argc, char ** argv)
   // }
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
   enum Block::Type game[256u];
-  enum Block::Type gamePlain[256u];
+  //enum Block::Type gamePlain[256u];
   enum Block::Type stat[84u];
   enum Block::Type text[176u]; //for testing
   for(std::size_t i = 0; i < 176u; i++){
@@ -38,10 +40,10 @@ int main(int argc, char ** argv)
     switch(i % 10u){
     }
   }
-  for(std::size_t i = 0; i < 256u; i++){
-    gamePlain[i] = Block::Type::BLANK;
-  }
-  Grid::Border::draw(gamePlain, 0b1101);
+  // for(std::size_t i = 0; i < 256u; i++){
+  //   gamePlain[i] = Block::Type::BLANK;
+  // }
+  //Grid::Border::draw(gamePlain, 0b1101);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
@@ -73,8 +75,9 @@ int main(int argc, char ** argv)
         break;
       }
     }
+    auto plainField = Grid::get(std::pair<int,int>(0,0));
     for(std::size_t i = 0; i < 256u; i++){
-      game[i] = gamePlain[i];
+      game[i] = plainField[i];
     }
     play.game_display_draw(game);
     window.clear();
@@ -83,7 +86,6 @@ int main(int argc, char ** argv)
     window.display();
   }
   (void)game;
-  (void)gamePlain;
   (void)stat;
   (void)text;
   return 0;
