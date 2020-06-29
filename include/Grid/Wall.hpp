@@ -5,7 +5,7 @@
 
 namespace Grid {
   namespace Border {
-    void draw(enum Block::Type * arr, enum Grid::Border::Type type); //Game block arr(256)
+    void draw(enum Block::Type * arr, Grid::Border::Type type); //Game block arr(256)
   }
 }
 
