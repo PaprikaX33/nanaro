@@ -12,6 +12,7 @@ static std::uint_least8_t get_border_type(std::pair<int,int> const &, Grid::LocS
 
 void Grid::generate_grid(std::size_t count)
 {
+  Grid::textureMap.clear();
   auto const layout = Grid::generate_layout(count + 1);
   for(auto const & position : layout) {
     std::array<Block::Type, Grid::gameArrSize> mainArr;

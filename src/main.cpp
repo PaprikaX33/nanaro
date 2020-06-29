@@ -18,7 +18,8 @@ int main(int argc, char ** argv)
   (void)argc; (void)argv;
   Sprite::initialize();
   sys::rng::init();
-  auto const layout = Grid::generate_layout(12);
+  //auto const layout = Grid::generate_layout(12);
+  Grid::generate_grid(5);
   Player play;
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   // for(auto const i : layout){
