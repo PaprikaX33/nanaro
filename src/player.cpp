@@ -7,54 +7,26 @@ void Player::state_update(Action act)
 {
   switch(act){
   case Player::Action::MOVE_TOP:
-    if(_pos.y != 1){
-      if(is_movable({_pos.x, _pos.y - 1})){
-        --_pos.y;
-      }
-    }
-    else {
-      if(_pos.x == 7 || _pos.x == 8){
-        _pos.y = 14;
-      }
+    if(is_movable({_pos.x, _pos.y - 1})){
+      --_pos.y;
     }
     _faceDir = sys::Dir::TOP;
     break;
   case Player::Action::MOVE_RGH:
-    if(_pos.x != 14){
-      if(is_movable({_pos.x + 1, _pos.y})){
-        ++_pos.x;
-      }
-    }
-    else {
-      if(_pos.y == 7 || _pos.y == 8){
-        _pos.x = 1;
-      }
+    if(is_movable({_pos.x + 1, _pos.y})){
+      ++_pos.x;
     }
     _faceDir = sys::Dir::RGH;
     break;
   case Player::Action::MOVE_BOT:
-    if(_pos.y != 14){
-      if(is_movable({_pos.x, _pos.y + 1})){
-        ++_pos.y;
-      }
-    }
-    else {
-      if(_pos.x == 7 || _pos.x == 8){
-        _pos.y = 1;
-      }
+    if(is_movable({_pos.x, _pos.y + 1})){
+      ++_pos.y;
     }
     _faceDir = sys::Dir::BOT;
     break;
   case Player::Action::MOVE_LFT:
-    if(_pos.x != 1){
-      if(is_movable({_pos.x - 1, _pos.y})){
-        --_pos.x;
-      }
-    }
-    else {
-      if(_pos.y == 7 || _pos.y == 8){
-        _pos.x = 14;
-      }
+    if(is_movable({_pos.x - 1, _pos.y})){
+      --_pos.x;
     }
     _faceDir = sys::Dir::LFT;
     break;
