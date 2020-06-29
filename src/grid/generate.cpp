@@ -56,6 +56,6 @@ void set_final_location(void)
   auto iter = Grid::textureMap.begin();
   do {
     std::advance(iter, sys::rng::general_set(Grid::textureMap.size()));
-  } while(iter->first.first != 0 && iter->first.second != 0);
+  } while(iter->first.first == 0 && iter->first.second == 0);
   iter->second[7u*16u+7u] = Block::Type::EXIT_UNLOCKED;
 }
