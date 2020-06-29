@@ -85,8 +85,11 @@ set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sprite/init/moveable.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/colour.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/block/image.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/block/numeric.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/wall.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/layout.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/generate.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/grid.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sys/random.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/ui/compose.cpp
   )
