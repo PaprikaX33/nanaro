@@ -27,6 +27,7 @@ void Grid::generate_grid(std::size_t count)
     mainArr[16u+14] = Block::to_sprite(static_cast<std::size_t>(position.second < 0 ? position.second * (-1) : position.second));
     mainArr[2u*16u+13] = position.first < 0 ? Block::Type::RED : Block::Type::GREEN;
     mainArr[2u*16u+14] = position.second < 0 ? Block::Type::RED : Block::Type::GREEN;
+    mainArr[8u*16u+8] = Block::Type::WALL_A;
     Grid::Border::draw(mainArr.data(), borderType);
     Grid::textureMap[position] = mainArr;
   }
