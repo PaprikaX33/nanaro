@@ -6,6 +6,7 @@
 namespace Grid {
   Block::Type const * get(std::pair<int,int> const &);
   Block::Type const * get(void);
+  //TODO: replace the pair to sys::pair
   extern std::pair<int,int> screenPos;
 }
 

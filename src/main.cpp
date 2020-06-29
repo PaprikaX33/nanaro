@@ -75,7 +75,8 @@ int main(int argc, char ** argv)
         break;
       }
     }
-    auto plainField = Grid::get(std::pair<int,int>(0,0));
+    //auto plainField = Grid::get(std::pair<int,int>(0,0));
+    auto plainField = Grid::get();
     if(plainField) {
       for(std::size_t i = 0; i < 256u; i++){
         game[i] = plainField[i];
