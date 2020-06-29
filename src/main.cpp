@@ -40,7 +40,7 @@ int main(int argc, char ** argv)
   for(std::size_t i = 0; i < 256u; i++){
     gamePlain[i] = Block::Type::BLANK;
   }
-  Grid::Border::draw(gamePlain, Grid::Border::Type::MC);
+  Grid::Border::draw(gamePlain, 0b1101);
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
