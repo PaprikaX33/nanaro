@@ -1,7 +1,7 @@
 #include "Block/PixCol.hpp"
 #include "Player.hpp"
 #include "Block/Numeric.hpp"
-//#include "Block/Type.hpp"
+#include "Block/Type.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
 #include "Grid/Wall.hpp"
@@ -40,7 +40,6 @@ int main(int argc, char ** argv)
   for(std::size_t i = 0; i < 256u; i++){
     gamePlain[i] = Block::Type::BLANK;
   }
-  //Grid::Border::draw(gamePlain, Grid::Border::Type::MC);
   Grid::Border::draw(gamePlain, 0b1101);
   window.setView(viewScaler);
   window.setFramerateLimit(60);

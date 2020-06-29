@@ -12,7 +12,7 @@ enum class OpPoss : std::uint_least8_t {
 
 static void create_openings(enum Block::Type * arr, enum OpPoss pos);
 
-void Grid::Border::draw(enum Block::Type * arr, std::uint_least8_t type)
+void Grid::Border::draw(enum Block::Type * arr, Grid::Border::Type type)
 {
   for(std::size_t i = 0; i < 16u; i++){
     switch(sys::rng::wall()){
@@ -58,50 +58,6 @@ void Grid::Border::draw(enum Block::Type * arr, std::uint_least8_t type)
   if(type & 0b1000) {
     create_openings(arr, OpPoss::TOP);
   }
-  // switch(type) {
-  // case Grid::Border::Type::TOP_LFT:
-  //   create_openings(arr, OpPoss::RGH);
-  //   create_openings(arr, OpPoss::BOT);
-  //   break;
-  // case Grid::Border::Type::TOP_CNT:
-  //   create_openings(arr, OpPoss::RGH);
-  //   create_openings(arr, OpPoss::BOT);
-  //   create_openings(arr, OpPoss::LFT);
-  //   break;
-  // case Grid::Border::Type::TOP_RGH:
-  //   create_openings(arr, OpPoss::BOT);
-  //   create_openings(arr, OpPoss::LFT);
-  //   break;
-  // case Grid::Border::Type::MID_LFT:
-  //   create_openings(arr, OpPoss::TOP);
-  //   create_openings(arr, OpPoss::RGH);
-  //   create_openings(arr, OpPoss::BOT);
-  //   break;
-  // case Grid::Border::Type::MID_CNT:
-  //   create_openings(arr, OpPoss::TOP);
-  //   create_openings(arr, OpPoss::RGH);
-  //   create_openings(arr, OpPoss::BOT);
-  //   create_openings(arr, OpPoss::LFT);
-  //   break;
-  // case Grid::Border::Type::MID_RGH:
-  //   create_openings(arr, OpPoss::TOP);
-  //   create_openings(arr, OpPoss::BOT);
-  //   create_openings(arr, OpPoss::LFT);
-  //   break;
-  // case Grid::Border::Type::BOT_LFT:
-  //   create_openings(arr, OpPoss::TOP);
-  //   create_openings(arr, OpPoss::RGH);
-  //   break;
-  // case Grid::Border::Type::BOT_CNT:
-  //   create_openings(arr, OpPoss::TOP);
-  //   create_openings(arr, OpPoss::RGH);
-  //   create_openings(arr, OpPoss::LFT);
-  //   break;
-  // case Grid::Border::Type::BOT_RGH:
-  //   create_openings(arr, OpPoss::TOP);
-  //   create_openings(arr, OpPoss::LFT);
-  //   break;
-  // }
   return;
 }
 
