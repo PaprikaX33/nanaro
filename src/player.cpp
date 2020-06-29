@@ -1,55 +1,58 @@
 #include "Player.hpp"
+#include "Grid/Selection.hpp"
+
+static bool is_movable(sys::Pairu);
 
 void Player::state_update(Action act)
 {
   switch(act){
   case Player::Action::MOVE_TOP:
-    if(_pos.y != 1){
+    if(_pos.y == 0){
+      Grid::screenPos = std::pair<int,int>(Grid::screenPos.first, Grid::screenPos.second - 1);
+      _pos.y = 15;
+      return;
+    }
+    if(is_movable({_pos.x, _pos.y - 1})){
       --_pos.y;
     }
-    else {
-      if(_pos.x == 7 || _pos.x == 8){
-        _pos.y = 14;
-      }
-    }
     _faceDir = sys::Dir::TOP;
-    break;
+    return;
   case Player::Action::MOVE_RGH:
-    if(_pos.x != 14){
+    if(_pos.x == 15){
+      Grid::screenPos = std::pair<int,int>(Grid::screenPos.first + 1, Grid::screenPos.second);
+      _pos.x = 0;
+      return;
+    }
+    if(is_movable({_pos.x + 1, _pos.y})){
       ++_pos.x;
     }
-    else {
-      if(_pos.y == 7 || _pos.y == 8){
-        _pos.x = 1;
-      }
-    }
     _faceDir = sys::Dir::RGH;
-    break;
+    return;
   case Player::Action::MOVE_BOT:
-    if(_pos.y != 14){
+    if(_pos.y == 15){
+      Grid::screenPos = std::pair<int,int>(Grid::screenPos.first, Grid::screenPos.second + 1);
+      _pos.y = 0;
+      return;
+    }
+    if(is_movable({_pos.x, _pos.y + 1})){
       ++_pos.y;
     }
-    else {
-      if(_pos.x == 7 || _pos.x == 8){
-        _pos.y = 1;
-      }
-    }
     _faceDir = sys::Dir::BOT;
-    break;
+    return;
   case Player::Action::MOVE_LFT:
-    if(_pos.x != 1){
+    if(_pos.x == 0){
+      Grid::screenPos = std::pair<int,int>(Grid::screenPos.first - 1, Grid::screenPos.second);
+      _pos.x = 15;
+      return;
+    }
+    if(is_movable({_pos.x - 1, _pos.y})){
       --_pos.x;
     }
-    else {
-      if(_pos.y == 7 || _pos.y == 8){
-        _pos.x = 14;
-      }
-    }
     _faceDir = sys::Dir::LFT;
-    break;
+    return;
     //default:
-  case Player::Action::ATTACK_RNG:break;
-  case Player::Action::ATTACK_MLE:break;
+  case Player::Action::ATTACK_RNG:return;
+  case Player::Action::ATTACK_MLE:return;
   }
 }
 
@@ -71,3 +74,18 @@ Player::Player():
 }
 
 Player::~Player(){}
+
+bool is_movable(sys::Pairu pos)
+{
+  auto const field = Grid::get();
+  auto const block = field[pos.y * 16u + pos.x];
+  switch(block){
+  case Block::Type::WALL_A:
+  case Block::Type::WALL_B:
+  case Block::Type::WALL_C:
+  case Block::Type::WALL_D:
+    return false;
+  default:
+    return true;
+  }
+}

@@ -2,7 +2,7 @@
 #include "Block/PixCol.hpp"
 #include "Block/Type.hpp"
 #include "Grid/Generate.hpp"
-#include "Grid/Get.hpp"
+#include "Grid/Selection.hpp"
 #include "Grid/Layout.hpp"
 #include "Grid/Wall.hpp"
 #include "Player.hpp"
@@ -51,7 +51,7 @@ int main(int argc, char ** argv)
     while (window.pollEvent(event)){
       if(event.type == sf::Event::Closed ||
          (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Button::Right)){// ||
-         //(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::Q && event.key.control)){
+        //(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::Q && event.key.control)){
         window.close();
         break;
       }
@@ -75,11 +75,14 @@ int main(int argc, char ** argv)
         break;
       }
     }
-    auto plainField = Grid::get(std::pair<int,int>(0,0));
-    for(std::size_t i = 0; i < 256u; i++){
-      game[i] = plainField[i];
+    //auto plainField = Grid::get(std::pair<int,int>(0,0));
+    auto plainField = Grid::get();
+    if(plainField) {
+      for(std::size_t i = 0; i < 256u; i++){
+        game[i] = plainField[i];
+      }
+      play.game_display_draw(game);
     }
-    play.game_display_draw(game);
     window.clear();
     Sprite::draw(window, Ui::compose(text, stat, game));
     //Sprite::draw(window, Ui::compose(nullptr, nullptr, nullptr)); //testing only
