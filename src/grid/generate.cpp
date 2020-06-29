@@ -1,7 +1,10 @@
 #include "Grid/Layout.hpp"
 #include "Grid/Type.hpp"
 #include "Grid/Properties.hpp"
+#include "Grid/Wall.hpp"
 #include "Grid/Generate.hpp"
+#include "Block/Type.hpp"
+#include "Block/Numeric.hpp"
 #include <cstdint>
 #include <cstddef>
 
@@ -13,8 +16,12 @@ void Grid::generate_grid(std::size_t count)
   for(auto const & position : layout) {
     std::array<Block::Type, Grid::gameArrSize> mainArr;
     auto const borderType = get_border_type(position, layout);
-    (void)mainArr;
-    (void)borderType;
+    mainArr[16u+13] = Block::to_sprite(static_cast<std::size_t>(position.first < 0 ? position.first * (-1) : position.first));
+    mainArr[16u+14] = Block::to_sprite(static_cast<std::size_t>(position.second < 0 ? position.second * (-1) : position.second));
+    mainArr[2u*16u+13] = position.first < 0 ? Block::Type::RED : Block::Type::GREEN;
+    mainArr[2u*16u+14] = position.second < 0 ? Block::Type::RED : Block::Type::GREEN;
+    Grid::Border::draw(mainArr.data(), borderType);
+    Grid::textureMap[position] = mainArr;
   }
 }
 
