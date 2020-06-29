@@ -12,7 +12,7 @@ enum class OpPoss : std::uint_least8_t {
 
 static void create_openings(enum Block::Type * arr, enum OpPoss pos);
 
-void Grid::Border::draw(enum Block::Type * arr, enum Grid::Border::Type type)
+void Grid::Border::draw(enum Block::Type * arr, std::uint_least8_t type)
 {
   for(std::size_t i = 0; i < 16u; i++){
     switch(sys::rng::wall()){
@@ -46,50 +46,62 @@ void Grid::Border::draw(enum Block::Type * arr, enum Grid::Border::Type type)
     case 3: arr[(i*16)+15] = Block::Type::WALL_D; break;
     }
   }
-  switch(type) {
-  case Grid::Border::Type::TOP_LFT:
+  if(type & 0b1) {
     create_openings(arr, OpPoss::RGH);
-    create_openings(arr, OpPoss::BOT);
-    break;
-  case Grid::Border::Type::TOP_CNT:
-    create_openings(arr, OpPoss::RGH);
-    create_openings(arr, OpPoss::BOT);
-    create_openings(arr, OpPoss::LFT);
-    break;
-  case Grid::Border::Type::TOP_RGH:
-    create_openings(arr, OpPoss::BOT);
-    create_openings(arr, OpPoss::LFT);
-    break;
-  case Grid::Border::Type::MID_LFT:
-    create_openings(arr, OpPoss::TOP);
-    create_openings(arr, OpPoss::RGH);
-    create_openings(arr, OpPoss::BOT);
-    break;
-  case Grid::Border::Type::MID_CNT:
-    create_openings(arr, OpPoss::TOP);
-    create_openings(arr, OpPoss::RGH);
-    create_openings(arr, OpPoss::BOT);
-    create_openings(arr, OpPoss::LFT);
-    break;
-  case Grid::Border::Type::MID_RGH:
-    create_openings(arr, OpPoss::TOP);
-    create_openings(arr, OpPoss::BOT);
-    create_openings(arr, OpPoss::LFT);
-    break;
-  case Grid::Border::Type::BOT_LFT:
-    create_openings(arr, OpPoss::TOP);
-    create_openings(arr, OpPoss::RGH);
-    break;
-  case Grid::Border::Type::BOT_CNT:
-    create_openings(arr, OpPoss::TOP);
-    create_openings(arr, OpPoss::RGH);
-    create_openings(arr, OpPoss::LFT);
-    break;
-  case Grid::Border::Type::BOT_RGH:
-    create_openings(arr, OpPoss::TOP);
-    create_openings(arr, OpPoss::LFT);
-    break;
   }
+  if(type & 0b10) {
+    create_openings(arr, OpPoss::BOT);
+  }
+  if(type & 0b100) {
+    create_openings(arr, OpPoss::LFT);
+  }
+  if(type & 0b1000) {
+    create_openings(arr, OpPoss::TOP);
+  }
+  // switch(type) {
+  // case Grid::Border::Type::TOP_LFT:
+  //   create_openings(arr, OpPoss::RGH);
+  //   create_openings(arr, OpPoss::BOT);
+  //   break;
+  // case Grid::Border::Type::TOP_CNT:
+  //   create_openings(arr, OpPoss::RGH);
+  //   create_openings(arr, OpPoss::BOT);
+  //   create_openings(arr, OpPoss::LFT);
+  //   break;
+  // case Grid::Border::Type::TOP_RGH:
+  //   create_openings(arr, OpPoss::BOT);
+  //   create_openings(arr, OpPoss::LFT);
+  //   break;
+  // case Grid::Border::Type::MID_LFT:
+  //   create_openings(arr, OpPoss::TOP);
+  //   create_openings(arr, OpPoss::RGH);
+  //   create_openings(arr, OpPoss::BOT);
+  //   break;
+  // case Grid::Border::Type::MID_CNT:
+  //   create_openings(arr, OpPoss::TOP);
+  //   create_openings(arr, OpPoss::RGH);
+  //   create_openings(arr, OpPoss::BOT);
+  //   create_openings(arr, OpPoss::LFT);
+  //   break;
+  // case Grid::Border::Type::MID_RGH:
+  //   create_openings(arr, OpPoss::TOP);
+  //   create_openings(arr, OpPoss::BOT);
+  //   create_openings(arr, OpPoss::LFT);
+  //   break;
+  // case Grid::Border::Type::BOT_LFT:
+  //   create_openings(arr, OpPoss::TOP);
+  //   create_openings(arr, OpPoss::RGH);
+  //   break;
+  // case Grid::Border::Type::BOT_CNT:
+  //   create_openings(arr, OpPoss::TOP);
+  //   create_openings(arr, OpPoss::RGH);
+  //   create_openings(arr, OpPoss::LFT);
+  //   break;
+  // case Grid::Border::Type::BOT_RGH:
+  //   create_openings(arr, OpPoss::TOP);
+  //   create_openings(arr, OpPoss::LFT);
+  //   break;
+  // }
   return;
 }
 
