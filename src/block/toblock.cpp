@@ -1,9 +1,8 @@
-#include "Block/Numeric.hpp"
+#include "Block/ToBlock.hpp"
 
-Block::Type Block::to_sprite(std::size_t val)
+Block::Type Block::conv::num(std::size_t val)
 {
   switch(val){
-    //NUMBERS
   case 0 : return Block::Type::ZERO;
   case 1 : return Block::Type::ONE;
   case 2 : return Block::Type::TWO;
@@ -17,3 +16,6 @@ Block::Type Block::to_sprite(std::size_t val)
   default: return Block::Type::INVALID;
   }
 }
+
+
+Block::Type Block::conv::chr(char);

@@ -1,4 +1,4 @@
-#include "Block/Numeric.hpp"
+#include "Block/ToBlock.hpp"
 #include "Block/PixCol.hpp"
 #include "Block/Type.hpp"
 #include "Grid/Generate.hpp"
@@ -33,10 +33,10 @@ int main(int argc, char ** argv)
   enum Block::Type stat[84u];
   enum Block::Type text[176u]; //for testing
   for(std::size_t i = 0; i < 176u; i++){
-    text[i] = Block::to_sprite(i%10);
+    text[i] = Block::conv::num(i%10);
   }
   for(std::size_t i = 0; i < 84u; i++){
-    stat[i] = Block::to_sprite(i%10);
+    stat[i] = Block::conv::num(i%10);
     switch(i % 10u){
     }
   }
