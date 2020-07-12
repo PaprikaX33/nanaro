@@ -18,6 +18,7 @@
 int main(int argc, char ** argv)
 {
   (void)argc; (void)argv;
+  char const * written = "12 13 11";
   Sprite::initialize();
   sys::rng::init();
   //auto const layout = Grid::generate_layout(12);
@@ -36,9 +37,12 @@ int main(int argc, char ** argv)
     text[i] = Block::conv::num(i%10);
   }
   for(std::size_t i = 0; i < 84u; i++){
-    stat[i] = Block::conv::num(i%10);
-    switch(i % 10u){
-    }
+    //stat[i] = Block::conv::num(i%10);
+    stat[i] = Block::Type::BLANK;
+  }
+  auto blocked = Block::conv::str(written);
+  for(auto i = 0u ; i < blocked.size(); i++){
+    stat[29+i] = blocked[i];
   }
   // for(std::size_t i = 0; i < 256u; i++){
   //   gamePlain[i] = Block::Type::BLANK;

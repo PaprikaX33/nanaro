@@ -31,6 +31,17 @@ Block::Type Block::conv::chr(char val)
   case '7' : return Block::Type::SEVEN;
   case '8' : return Block::Type::EIGHT;
   case '9' : return Block::Type::NINE;
+  case ' ' : return Block::Type::SPACE;
   default: return Block::Type::INVALID;
   }
+}
+
+std::vector<Block::Type> Block::conv::str(char const *str)
+{
+  std::vector<Block::Type> buff;
+  while(*str) {
+    buff.emplace_back(Block::conv::chr(*str));
+    str++;
+  }
+  return buff;
 }
