@@ -1,0 +1,7 @@
+* Parts: [0/6]
+  1. [ ] Map Tiles
+  2. [ ] Working Alphabeth
+  3. [ ] Death condition
+  4. [ ] Win Condition
+  5. [ ] Enemy AI
+  6. [ ] Remake the numbering
