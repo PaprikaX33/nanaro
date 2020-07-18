@@ -1,16 +1,18 @@
-* To Be Implemented: [0/9]
+* To Be Implemented: [0/10]
   1. [ ] Map Grid
-  2. [ ] Working Alphabeth
-  3. [ ] Death condition
-  4. [ ] Win Condition
-  5. [ ] Enemy AI
-  6. [ ] Remake the numbering
-  7. [ ] Rename Grid / Block / Sprite to more descriptive name
-  8. [ ] Create a proper documentation
-  9. [ ] (LOW POSSIBILITIES) Rewrite some stuff to follow encapsulation better
+  2. [ ] Working Alphabet
+  3. [ ] Unify the North, East, South, West from the multiple enum right now
+  4. [ ] Death condition
+  5. [ ] Win Condition
+  6. [ ] Enemy AI
+  7. [ ] Remake the numbering
+  8. [ ] Rename Grid / Block / Sprite to more descriptive name
+  9. [ ] Create a proper documentation
+  10. [ ] (LOW POSSIBILITIES) Rewrite some stuff to follow encapsulation better
 
 
-* Ideas for Map Grid: [0/2]
+* Ideas for Map Grid: [0/3]
   1. [ ] Randomize from a limited set of tiles with all directions are accessible
   2. [ ] Grid is generated uniquely with a path tester to check the possible path in the same grid
-
+  3. [ ] Grid is generated uniquely with a path tester to check the possible path between multiple grid
+     example: The path From North to south is blocked but a path is available by making a detour to west
