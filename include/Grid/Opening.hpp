@@ -4,16 +4,7 @@
 
 namespace Grid {
   namespace Border {
-    //{
-    // x : {
-    //  x : top;
-    //  y : bot;
-    // },
-    // y : {
-    //  x : lft;
-    //  y : rgh;
-    // }
-    //}
+    //{x: {x: top, y: bot}, y: {x: lft, y: rgh}}
     using Type = sys::Pair<sys::Pair<bool>>;
   }
 }
