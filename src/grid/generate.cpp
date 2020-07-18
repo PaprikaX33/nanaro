@@ -9,7 +9,7 @@
 #include <cstddef>
 #include <utility>
 
-static std::uint_least8_t get_border_type(std::pair<int,int> const &, Grid::LocSet const &);
+static Grid::Border::Type get_border_type(std::pair<int,int> const &, Grid::LocSet const &);
 static void set_final_location(void);
 
 void Grid::generate_grid(std::size_t count)
@@ -34,20 +34,14 @@ void Grid::generate_grid(std::size_t count)
 }
 
 
-std::uint_least8_t get_border_type(std::pair<int,int> const & pos, Grid::LocSet const & sur)
+Grid::Border::Type get_border_type(std::pair<int,int> const & pos, Grid::LocSet const & sur)
 {
   using keyPair = std::pair<int,int>;
-  auto key = [](bool tr, std::size_t offset){
-               std::uint_least8_t const bitmask = 0b1111;
-               std::uint_least8_t const val = bitmask & ((tr ? 1u : 0u) << offset);
-               return val;
-             };
   bool const top = sur.count(keyPair{pos.first, pos.second - 1});
   bool const rgh = sur.count(keyPair{pos.first + 1, pos.second});
   bool const bot = sur.count(keyPair{pos.first, pos.second + 1});
   bool const lft = sur.count(keyPair{pos.first - 1, pos.second});
-  std::uint_least8_t const cases = key(top, 3) | key(lft, 2) | key(bot, 1) | key(rgh, 0);
-  return cases;
+  return Grid::Border::Type{sys::Pair<bool>{top, bot}, sys::Pair<bool>{lft, rgh}};
 }
 
 void set_final_location(void)
