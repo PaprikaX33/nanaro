@@ -16,3 +16,7 @@
   2. [ ] Grid is generated uniquely with a path tester to check the possible path in the same grid
   3. [ ] Grid is generated uniquely with a path tester to check the possible path between multiple grid
      example: The path From North to south is blocked but a path is available by making a detour to west
+
+* Ideas for Alphanumeric character [0/2]
+  1. [ ] More Blocky texture
+  2. [ ] Reduce the character size from 10x10 to 6x10
