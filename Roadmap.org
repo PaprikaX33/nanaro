@@ -1,15 +1,15 @@
-* To Be Implemented: [0/10]
+* To Be Implemented: [0/11]
   1. [ ] Map Grid
   2. [ ] Working Alphabet
   3. [ ] Unify the North, East, South, West from the multiple enum right now
   4. [ ] Death condition
   5. [ ] Win Condition
   6. [ ] Enemy AI
-  7. [ ] Remake the numbering
+  7. [ ] Remake the numbering sprite
   8. [ ] Rename Grid / Block / Sprite to more descriptive name
-  9. [ ] Create a proper documentation
-  10. [ ] (LOW POSSIBILITIES) Rewrite some stuff to follow encapsulation better
-
+  9. [ ] Sprite Initialization rework
+  10. [ ] Create a proper documentation
+  11. [ ] (LOW POSSIBILITIES) Rewrite some stuff to follow encapsulation better
 
 * Ideas for Map Grid: [0/3]
   1. [ ] Randomize from a limited set of tiles with all directions are accessible
