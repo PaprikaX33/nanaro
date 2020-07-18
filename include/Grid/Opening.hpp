@@ -1,12 +1,21 @@
-#ifndef NANARO_GRID_TYPE_HEAD_HPP
-#define NANARO_GRID_TYPE_HEAD_HPP
-#include <cstdint>
+#ifndef NANARO_GRID_OPENING_HEAD_HPP
+#define NANARO_GRID_OPENING_HEAD_HPP
+#include "System/Pair.hpp"
 
 namespace Grid {
   namespace Border {
-    //type : 4 bit wasd. true = opening, false = wallled
-    using Type = std::uint_least8_t;
+    //{
+    // x : {
+    //  x : top;
+    //  y : bot;
+    // },
+    // y : {
+    //  x : lft;
+    //  y : rgh;
+    // }
+    //}
+    using Type = sys::Pair<sys::Pair<bool>>;
   }
 }
 
-#endif //NANARO_GRID_TYPE_HEAD_HPP
+#endif //NANARO_GRID_OPENING_HEAD_HPP

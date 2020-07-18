@@ -46,17 +46,17 @@ void Grid::Border::draw(enum Block::Type * arr, Grid::Border::Type type)
     case 3: arr[(i*16)+15] = Block::Type::WALL_D; break;
     }
   }
-  if(type & 0b1) {
-    create_openings(arr, OpPoss::RGH);
+  if(type.x.x) {
+    create_openings(arr, OpPoss::TOP);
   }
-  if(type & 0b10) {
+  if(type.x.y) {
     create_openings(arr, OpPoss::BOT);
   }
-  if(type & 0b100) {
-    create_openings(arr, OpPoss::LFT);
+  if(type.y.y) {
+    create_openings(arr, OpPoss::RGH);
   }
-  if(type & 0b1000) {
-    create_openings(arr, OpPoss::TOP);
+  if(type.y.x) {
+    create_openings(arr, OpPoss::LFT);
   }
   return;
 }
