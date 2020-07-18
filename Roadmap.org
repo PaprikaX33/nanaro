@@ -1,7 +1,16 @@
-* Parts: [0/6]
-  1. [ ] Map Tiles
+* To Be Implemented: [0/9]
+  1. [ ] Map Grid
   2. [ ] Working Alphabeth
   3. [ ] Death condition
   4. [ ] Win Condition
   5. [ ] Enemy AI
   6. [ ] Remake the numbering
+  7. [ ] Rename Grid / Block / Sprite to more descriptive name
+  8. [ ] Create a proper documentation
+  9. [ ] (LOW POSSIBILITIES) Rewrite some stuff to follow encapsulation better
+
+
+* Ideas for Map Grid: [0/2]
+  1. [ ] Randomize from a limited set of tiles with all directions are accessible
+  2. [ ] Grid is generated uniquely with a path tester to check the possible path in the same grid
+
