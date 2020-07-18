@@ -1,5 +1,5 @@
 #include "Grid/Wall.hpp"
-#include "Grid/Type.hpp"
+#include "Grid/Opening.hpp"
 #include "System/Random.hpp"
 #include <cstdint>
 

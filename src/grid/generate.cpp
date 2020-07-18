@@ -2,7 +2,7 @@
 #include "Grid/Properties.hpp"
 #include "Grid/Wall.hpp"
 #include "Grid/Generate.hpp"
-#include "Block/Opening.hpp"
+#include "Block/Type.hpp"
 #include "Block/ToBlock.hpp"
 #include "System/Random.hpp"
 #include <cstdint>
