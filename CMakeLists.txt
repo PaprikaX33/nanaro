@@ -89,7 +89,7 @@ set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/wall.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/selection.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/layout.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/type.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/wallLayout.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/generate.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sys/random.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/ui/compose.cpp
@@ -108,7 +108,7 @@ set(INCLUDE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Direction.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Ui/Compose.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Player.hpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Type.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/WallLayout.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Opening.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Selection.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Layout.hpp

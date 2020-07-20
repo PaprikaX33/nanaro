@@ -1,4 +1,4 @@
-#include "Grid/Type.hpp"
+#include "Grid/WallLayout.hpp"
 #include <set>
 
-static std::set<Grid::GridWallLayout> gridLayout;
+static std::set<Grid::Wall::Layout> gridLayout;
