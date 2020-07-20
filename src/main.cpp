@@ -18,9 +18,9 @@
 int main(int argc, char ** argv)
 {
   (void)argc; (void)argv;
+  sys::rng::init();
   char const * written = "12 13 11";
   Sprite::initialize();
-  sys::rng::init();
   Grid::generate_grid(5);
   Player play;
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
