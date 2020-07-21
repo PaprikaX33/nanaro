@@ -52,10 +52,6 @@ static std::set<Grid::Wall::Layout> gridLayout{{0,0,0,0,0,0,0, 0,0,0,0,0,0,0,
                                                }
 };
 
-void Grid::Wall::initialize(void)
-{
-}
-
 Grid::Wall::Layout const & Grid::Wall::get_random_layout(void)
 {
   auto itr = gridLayout.begin();
