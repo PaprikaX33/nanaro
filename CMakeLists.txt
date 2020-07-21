@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(NanaRo VERSION 0.4.3 LANGUAGES CXX)
+project(NanaRo VERSION 0.5.0 LANGUAGES CXX)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE DEBUG)
