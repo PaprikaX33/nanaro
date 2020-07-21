@@ -5,6 +5,7 @@
 #include "Grid/Selection.hpp"
 #include "Grid/Layout.hpp"
 #include "Grid/Wall.hpp"
+#include "Grid/WallLayout.hpp"
 #include "Player.hpp"
 #include "Sprite/Draw.hpp"
 #include "Sprite/Init.hpp"
@@ -21,6 +22,7 @@ int main(int argc, char ** argv)
   sys::rng::init();
   char const * written = "12 13 11";
   Sprite::initialize();
+  Grid::Wall::initialize();
   Grid::generate_grid(5);
   Player play;
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
