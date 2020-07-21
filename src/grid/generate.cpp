@@ -11,6 +11,7 @@
 
 static Grid::Border::Type get_border_type(std::pair<int,int> const &, Grid::LocSet const &);
 static void set_final_location(void);
+static void set_initial_location(Grid::Border::Type type);
 
 void Grid::generate_grid(std::size_t count)
 {
@@ -27,10 +28,13 @@ void Grid::generate_grid(std::size_t count)
     mainArr[2u*16u+13] = position.first < 0 ? Block::Type::RED : Block::Type::GREEN;
     mainArr[2u*16u+14] = position.second < 0 ? Block::Type::RED : Block::Type::GREEN;
     mainArr[8u*16u+8] = Block::Type::WALL_A;
+
+
     Grid::Border::draw(mainArr.data(), borderType);
     Grid::textureMap[position] = mainArr;
   }
   set_final_location();
+  set_initial_location(get_border_type(std::pair<int,int>{0,0}, layout));
 }
 
 
@@ -51,4 +55,15 @@ void set_final_location(void)
     std::advance(iter, sys::rng::general_set(Grid::textureMap.size()));
   } while(iter->first.first == 0 && iter->first.second == 0);
   iter->second[7u*16u+7u] = Block::Type::EXIT_UNLOCKED;
+}
+
+void set_initial_location(Grid::Border::Type type)
+{
+  std::pair<int,int> const initPoint{0,0};
+  std::array<Block::Type, Grid::gameArrSize> initForm;
+  for(auto & i : initForm){
+    i = Block::Type::BLANK;
+  }
+  Grid::Border::draw(initForm.data(), type);
+  Grid::textureMap.at(initPoint) = initForm;
 }
