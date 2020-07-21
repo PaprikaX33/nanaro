@@ -12,7 +12,7 @@
 #include "System/Random.hpp"
 #include "Ui/Compose.hpp"
 #include <SFML/Graphics.hpp>
-#include <vector>
+#include <array>
 #include <cstddef>
 #include <iostream>
 
@@ -22,14 +22,13 @@ int main(int argc, char ** argv)
   sys::rng::init();
   char const * written = "12 13 11";
   Sprite::initialize();
-  Grid::Wall::initialize();
   Grid::generate_grid(5);
   Player play;
   sf::RenderWindow window(sf::VideoMode(800,600), "NAna RO!");
   sf::View viewScaler(sf::FloatRect(0, 0, 360, 264)); //Not an exact square, but good enough
-  enum Block::Type game[256u];
-  enum Block::Type stat[84u];
-  enum Block::Type text[176u]; //for testing
+  std::array<enum Block::Type, 256u> game;
+  std::array<enum Block::Type, 84u> stat;
+  std::array<enum Block::Type, 176u> text; //for testing
   for(std::size_t i = 0; i < 176u; i++){
     text[i] = Block::conv::num(i%10);
   }
@@ -75,10 +74,10 @@ int main(int argc, char ** argv)
       for(std::size_t i = 0; i < 256u; i++){
         game[i] = plainField[i];
       }
-      play.game_display_draw(game);
+      play.game_display_draw(game.data());
     }
     window.clear();
-    Sprite::draw(window, Ui::compose(text, stat, game));
+    Sprite::draw(window, Ui::compose(text.data(), stat.data(), game.data()));
     //Sprite::draw(window, Ui::compose(nullptr, nullptr, nullptr)); //testing only
     window.display();
   }

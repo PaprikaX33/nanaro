@@ -9,7 +9,6 @@ namespace Grid {
     //Therefore the layout is only 14x14
     constexpr std::size_t layoutSize = 14u * 14u;
     using Layout = std::array<bool, layoutSize>; //An array of wall or not
-    void initialize(void); //An initialize function for the handwritten walling pattern
     Grid::Wall::Layout const & get_random_layout(void); //get random layout
     //TODO: get a controlable layout
     }
