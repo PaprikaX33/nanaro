@@ -10,6 +10,16 @@
   5. [ ] Win Condition
   6. [ ] Enemy AI
   7. [ ] Remake the numbering sprite
+     - Terminology
+       - Pixel : A single color. Consisted of 4 different colors:
+         - WHITE
+         - BLACK
+         - RED
+         - GREEN
+       - Block : A single entity. The entity can be a physical in game object, an item, a marker, or alphanumeric symbol. Currently there are 77 different block.
+       - Sprite : The representation of the block which is drawn to the screen. Consisted of 12x12 pixels.
+       - Grid : the map of the game area. In which the block resides.
+       - Layout : The position layout of which grid resides
   8. [ ] Rename Grid / Block / Sprite to more descriptive name
   9. [ ] Sprite Initialization rework
   10. [ ] Create a proper documentation
