@@ -2,8 +2,9 @@
 #include "Block/Type.hpp"
 #include "Grid/Wall.hpp"
 #include <cstddef>
+#include <array>
 
-static enum Block::Type renderBuff[660u];
+static std::array<enum Block::Type, 660u> renderBuff;
 static void write_separator();
 
 enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat, enum Block::Type * game)
@@ -51,7 +52,7 @@ enum Block::Type * Ui::compose(enum Block::Type * text, enum Block::Type * stat,
     }
   }
   write_separator();
-  return renderBuff;
+  return renderBuff.data();
 }
 
 
