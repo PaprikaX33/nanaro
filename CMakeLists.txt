@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(NanaRo VERSION 0.4.3 LANGUAGES CXX)
+project(NanaRo VERSION 0.5.0 LANGUAGES CXX)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE DEBUG)
@@ -89,6 +89,7 @@ set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/wall.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/selection.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/layout.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/wallLayout.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/grid/generate.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/sys/random.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/ui/compose.cpp
@@ -107,7 +108,8 @@ set(INCLUDE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/include/System/Direction.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Ui/Compose.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Player.hpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Type.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/WallLayout.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Opening.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Selection.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Layout.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/include/Grid/Wall.hpp

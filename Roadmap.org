@@ -1,5 +1,9 @@
-* To Be Implemented: [0/11]
-  1. [ ] Map Grid
+* To Be Implemented: [1/11]
+  1. [X] [4/4] Map Grid
+     - [X] Starting
+     - [X] On the work
+     - [X] Testing
+     - [X] Completed
   2. [ ] Working Alphabet
   3. [ ] Unify the North, East, South, West from the multiple enum right now
   4. [ ] Death condition

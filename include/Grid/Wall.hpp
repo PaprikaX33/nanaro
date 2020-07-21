@@ -1,6 +1,6 @@
 #ifndef NANARO_GRID_WALL_HEAD_HPP
 #define NANARO_GRID_WALL_HEAD_HPP
-#include "Grid/Type.hpp"
+#include "Grid/Opening.hpp"
 #include "Block/Type.hpp"
 
 namespace Grid {
