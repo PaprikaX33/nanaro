@@ -30,15 +30,16 @@ int main(int argc, char ** argv)
   std::array<enum Block::Type, 84u> stat;
   std::array<enum Block::Type, 176u> text; //for testing
   for(std::size_t i = 0; i < 176u; i++){
-    text[i] = Block::conv::num(i%10);
+    //text[i] = Block::conv::num(i%10);
+    text[i] = Block::Type::BLANK;
   }
   for(std::size_t i = 0; i < 84u; i++){
     stat[i] = Block::Type::BLANK;
   }
   auto blocked = Block::conv::str(written);
-  for(auto i = 0u ; i < blocked.size(); i++){
-    stat[29+i] = blocked[i];
-  }
+  // for(auto i = 0u ; i < blocked.size(); i++){
+  //   stat[29+i] = blocked[i];
+  // }
   window.setView(viewScaler);
   window.setFramerateLimit(60);
   while(window.isOpen()){
